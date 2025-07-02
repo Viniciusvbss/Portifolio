@@ -37,7 +37,7 @@ const toggleDarkMode = ()=>{
 <template>
     <header>
         <div class="flex justify-between items-center p-8 lg:px-12 relative z-20">
-            <div class="text-3xl font-bold dark:text-white">Logo</div>
+            <div class="text-3xl font-bold dark:text-white">Vbss</div>
             <!-- mobile menu -->
             <div class="md:hidden z-50">
                 <button class="block text-white dark:text-white" @click="isMenuOpen = !isMenuOpen">

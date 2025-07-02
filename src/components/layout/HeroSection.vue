@@ -15,7 +15,7 @@
         <main class="absolute grid lg:grid-cols-2 grid-cols-1 items-center p-2 lg:p-8">
             <header class="text-center lg:text-left">
                 <h1 class="md-6 text-4xl md:text-5xl lg:text-6xl font-bold">
-                     👋 Hi, I'm <span class="text-secondary stroke-text text-stroke-primary dark:text-stroke-secondary">Steven</span>
+                     👋 Hi, I'm <span class="text-secondary stroke-text text-stroke-primary dark:text-stroke-secondary">Vinicius</span>
                 </h1>
             </header>
         </main>
