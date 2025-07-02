@@ -18,6 +18,19 @@ const scrollToSection = (href) => {
         section.scrollIntoView({ behavior: 'smooth' });
     }
 }
+const isDarkMode = ref(localStorage.getItem('theme') === 'dark');
+const toggleDarkMode = ()=>{
+    const html = document.documentElement;
+    if(isDarkMode.value) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme','light')
+    } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme','light')
+    }
+
+    isDarkMode.value = !isDarkMode.value;
+}
 
 </script>
 
@@ -52,9 +65,11 @@ const scrollToSection = (href) => {
                         </a>
                     </li>
                 </ul>
-
+                <button @click="toggleDarkMode" class="text-white ml-20 z-10 hidden md:block">
+                    <Icon v-if="!isDarkMode" icon="line-md:moon-filled" class="text-5xl text-primary" />
+                    <Icon v-else icon="line-md:sunny-outline" class="text-5xl text-secondary" />
+                </button>
             </nav>
-
         </div>
     </header>
 </template>
