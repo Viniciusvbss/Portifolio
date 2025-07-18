@@ -6,4 +6,4 @@ import Countup from 'vue-countup-v3'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 AOS.init({duration:1000});
-createApp(App).component('Icon', Icon).component('Iountup', Countup).mount('#app')
+createApp(App).component('Icon', Icon).component('Countup', Countup).mount('#app')
