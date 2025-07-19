@@ -6,6 +6,7 @@
   const Services = defineAsyncComponent(()=>import('@/components/layout/Services.vue'));
   const Skills = defineAsyncComponent(()=>import('@/components/layout/Skills.vue'));
   const Whyme = defineAsyncComponent(()=>import('@/components/layout/Whyme.vue'));
+  const Projects = defineAsyncComponent(()=>import('@/components/layout/Projects.vue'));
 </script>
 
 <template>
@@ -16,6 +17,7 @@
   <Services />
   <Skills />
   <Whyme />
+  <Projects />
  </div>
 </template>
 

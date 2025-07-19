@@ -10,7 +10,7 @@ defineProps({
         required: true,
         default: 'Brief description of the project'
     },
-    imag: {
+    image: {
         type: String,
         required: true,
         default: '/'
@@ -37,7 +37,7 @@ defineProps({
     <article class="max-w-sm overflow-hidden shadow-lg rounded border border-secondary dark:bg-[#ffffff29] bg-primary">
         <!-- Imagens Section -->
         <figure>
-            <img :src="imag" :alt="title" class="w-full h-48 object-cover">
+            <img :src="image" :alt="title" class="w-full h-48 object-cover">
         </figure>
         <!-- Content Section -->
         <section class="px-6 py-4">
@@ -49,7 +49,7 @@ defineProps({
         <!-- Tags Section -->
         <footer class="px-6 pt-4 pb-2">
             <ul class="flex flex-warp gap-2">
-                <li v-for="(tags, index) in tags" :key="index"
+                <li v-for="(tag, index) in tags" :key="index"
                     class="Inline-block dark:ng-primary bg-gray-700 text-gray-200 rounded-full px-3 py-1 text-sm font-semibold">
                     #{{ tag }}
                 </li>
