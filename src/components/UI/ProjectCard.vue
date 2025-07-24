@@ -42,21 +42,21 @@ defineProps({
         <!-- Content Section -->
         <section class="px-6 py-4">
             <header>
-                <h3 class="font-bold text-xl mn-2 text-white">{{ title }}</h3>
+                <h3 class="font-bold text-xl mb-2 text-white">{{ title }}</h3>
             </header>
             <p class="text-gray-300 text-sm">{{ description }}</p>
         </section>
         <!-- Tags Section -->
         <footer class="px-6 pt-4 pb-2">
-            <ul class="flex flex-warp gap-2">
+            <ul class="grid grid-cols-2 gap-2 md:flex md:flex-wrap gap-2">
                 <li v-for="(tag, index) in tags" :key="index"
-                    class="Inline-block dark:ng-primary bg-gray-700 text-gray-200 rounded-full px-3 py-1 text-sm font-semibold">
+                    class="inline-block dark:bg-primary bg-gray-700 text-gray-200 rounded-full px-3 py-1 text-sm font-semibold">
                     #{{ tag }}
                 </li>
             </ul>
         </footer>
         <!-- Action Section -->
-        <div class="px-6 pb-4 flex justify-between items-center">
+        <div class="px-6 py-2 flex justify-between items-center">
             <a :href="liveLink" v-if="liveLink" class="text-secondary font-semibold hover:underline text-sm">Live Demo</a>
             <a :href="codeLink" v-if="codeLink" class="text-secondary font-semibold hover:underline text-sm">View Code</a>
         </div>

@@ -40,7 +40,7 @@ const projects = ref([
     image:'/project-3.PNG',
     tags:['HMTL','CSS','Javascript'],
     liveLink:'/',
-    codeLink:""
+    codeLink:"/"
   },
   {
     title: 'Portifplio wbsite',
@@ -55,7 +55,7 @@ const projects = ref([
 </script>
 
 <template>
-  <section id="project" class="relative w-11/12 px-16 mx-auto">
+  <section id="project" class="relative w-11/12 px-16 pb-8 mx-auto">
     <SectionHeader title="My Projects" />
     <!-- Custom navigation Buttons -->
     <button
