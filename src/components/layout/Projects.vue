@@ -9,7 +9,6 @@ import 'swiper/css/pagination';
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
-import { Icon } from '@iconify/vue';
 import { ref } from 'vue';
 // Define  navigation options 
 const navigationOptions = {
