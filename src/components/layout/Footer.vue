@@ -1,4 +1,5 @@
 <script setup>
+import { t } from '@/i18n';
 const year = new Date().getFullYear();
 </script>
 
@@ -8,7 +9,7 @@ const year = new Date().getFullYear();
       <a href="#" class="text-xl font-extrabold tracking-tight">
         VBSS<span class="text-accent-violet dark:text-secondary">.</span>
       </a>
-      <p class="text-primary/60 dark:text-slate-400">© {{ year }} Vinicius. All rights reserved.</p>
+      <p class="text-primary/60 dark:text-slate-400">© {{ year }} Vinicius. {{ t('footer.rights') }}</p>
     </div>
   </footer>
 </template>
