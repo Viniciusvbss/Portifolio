@@ -5,8 +5,6 @@ const SUPPORTED = ['pt', 'en'];
 
 const lorem =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error numquam corrupti repellendus architecto officiis autem expedita.';
-const loremLong =
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde molestiae a vel beatae molestias, quo nostrum non doloremque, explicabo consequuntur voluptatum reiciendis omnis ea qui sit praesentium.';
 const loremProject =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat fugit sequi similique, asperiores quisquam nostrum, enim ut repellendus vitae earum consectetur recusandae.';
 
@@ -14,7 +12,7 @@ export const messages = {
     pt: {
         meta: {
             title: 'Vinicius | Portfólio',
-            description: 'Vinicius — portfólio de desenvolvedor frontend',
+            description: 'Vinicius Barbosa — Software Engineer full stack (Node.js, TypeScript, Vue.js)',
         },
         nav: {
             menu: ['Serviços', 'Habilidades', 'Por que eu', 'Projetos', 'Contato'],
@@ -26,11 +24,14 @@ export const messages = {
         hero: {
             badge: 'Disponível para novos projetos',
             greeting: 'Olá, eu sou',
-            role: 'Desenvolvedor Frontend & entusiasta de UI',
-            description: loremLong,
+            role: 'Software Engineer',
+            description:
+                'Sou desenvolvedor full stack, formado em Análise e Desenvolvimento de Sistemas, e construo aplicações completas, do banco de dados ao deploy. Trabalho com Node.js, TypeScript, Vue.js, React e MySQL, e meu principal projeto é o Navalha, um SaaS para barbearias que desenvolvi sozinho e está em produção.',
             hire: 'Me contrate',
             resume: 'Currículo',
-            experienceValue: '5+ anos',
+            resumeLabel: 'Abrir currículo em PDF',
+            stackLabel: 'Stack principal',
+            experienceValue: '3 anos',
             experienceLabel: 'de experiência',
         },
         counter: ['Projetos criados', 'Projetos', 'Clientes satisfeitos', 'Anos'],
@@ -100,7 +101,7 @@ export const messages = {
     en: {
         meta: {
             title: 'Vinicius | Portfolio',
-            description: 'Vinicius — Frontend developer portfolio',
+            description: 'Vinicius Barbosa — Full stack Software Engineer (Node.js, TypeScript, Vue.js)',
         },
         nav: {
             menu: ['Services', 'Skills', 'Why Me', 'Projects', 'Contact'],
@@ -112,11 +113,14 @@ export const messages = {
         hero: {
             badge: 'Available for new projects',
             greeting: "Hi, I'm",
-            role: 'Frontend Developer & UI enthusiast',
-            description: loremLong,
+            role: 'Software Engineer',
+            description:
+                "I'm a full stack developer with a degree in Systems Analysis and Development, and I build complete applications, from the database to deployment. I work with Node.js, TypeScript, Vue.js, React and MySQL, and my main project is Navalha, a SaaS for barbershops that I built on my own and is live in production.",
             hire: 'Hire me',
             resume: 'Resume',
-            experienceValue: '5+ years',
+            resumeLabel: 'Open resume (PDF, in Portuguese)',
+            stackLabel: 'Main stack',
+            experienceValue: '3 years',
             experienceLabel: 'of experience',
         },
         counter: ['Created projects', 'Projects', 'Happy clients', 'Years'],
