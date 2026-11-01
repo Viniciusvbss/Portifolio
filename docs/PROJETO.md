@@ -362,7 +362,6 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 **Dados provisórios para trocar:**
 
 - Números do contador
-- Prints reais dos projetos que hoje usam capa gerada (Navalha, GaragemX, API Node, Busca de Perfil)
 
 **Ideias de melhorias:**
 

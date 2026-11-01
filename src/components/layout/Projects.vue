@@ -34,7 +34,7 @@ const projects = computed(() => projectData.map((p) => ({
     <div class="relative" data-aos="fade-up">
       <swiper :modules="[Navigation, Pagination, Autoplay]" :slidesPerView="1" :spaceBetween="24"
         :breakpoints="breakpoints" :navigation="navigationOptions" :pagination="{ clickable: true }"
-        :autoplay="{ delay: 5000, pauseOnMouseEnter: true }" loop grabCursor class="projects-swiper !px-1 !pb-14 !pt-2">
+        :autoplay="{ delay: 5000, pauseOnMouseEnter: true }" rewind grabCursor class="projects-swiper !px-1 !pb-14 !pt-2">
         <swiper-slide v-for="project in projects" :key="project.id" class="!h-auto">
           <ProjectCard v-bind="project" :liveLabel="t('projects.live')" :codeLabel="t('projects.code')" />
         </swiper-slide>
