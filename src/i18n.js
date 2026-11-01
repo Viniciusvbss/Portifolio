@@ -6,8 +6,9 @@ const SUPPORTED = ['pt', 'en'];
 export const messages = {
     pt: {
         meta: {
-            title: 'Vinicius | Portfólio',
-            description: 'Vinicius Barbosa — Software Engineer full stack (Node.js, TypeScript, Vue.js)',
+            title: 'Vinicius Barbosa | Software Engineer Full Stack',
+            description:
+                'Portfólio de Vinicius Barbosa, Software Engineer full stack em Recife. Aplicações web completas com Node.js, TypeScript, Vue.js, React e MySQL, do banco de dados ao deploy.',
         },
         nav: {
             menu: ['Serviços', 'Habilidades', 'Por que eu', 'Projetos', 'Contato'],
@@ -26,6 +27,7 @@ export const messages = {
             resume: 'Currículo',
             resumeLabel: 'Abrir currículo em PDF',
             stackLabel: 'Stack principal',
+            photoAlt: 'Foto de Vinicius Barbosa',
             experienceValue: '3 anos',
             experienceLabel: 'de experiência',
         },
@@ -122,8 +124,9 @@ export const messages = {
     },
     en: {
         meta: {
-            title: 'Vinicius | Portfolio',
-            description: 'Vinicius Barbosa — Full stack Software Engineer (Node.js, TypeScript, Vue.js)',
+            title: 'Vinicius Barbosa | Full Stack Software Engineer',
+            description:
+                'Portfolio of Vinicius Barbosa, full stack Software Engineer based in Recife, Brazil. Complete web applications with Node.js, TypeScript, Vue.js, React and MySQL, from database to deployment.',
         },
         nav: {
             menu: ['Services', 'Skills', 'Why Me', 'Projects', 'Contact'],
@@ -142,6 +145,7 @@ export const messages = {
             resume: 'Resume',
             resumeLabel: 'Open resume (PDF, in Portuguese)',
             stackLabel: 'Main stack',
+            photoAlt: 'Photo of Vinicius Barbosa',
             experienceValue: '3 years',
             experienceLabel: 'of experience',
         },

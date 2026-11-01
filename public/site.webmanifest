@@ -1,0 +1,13 @@
+{
+  "name": "Vinicius Barbosa — Portfólio",
+  "short_name": "Vinicius",
+  "description": "Portfólio de Vinicius Barbosa, Software Engineer full stack.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080326",
+  "theme_color": "#080326",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -61,7 +61,7 @@ const mainStack = [
                 <div class="animate-float">
                     <div class="relative rounded-[2.5rem] bg-gradient-to-tr from-accent-cyan via-accent-violet to-secondary p-[3px] shadow-2xl">
                         <div class="overflow-hidden rounded-[calc(2.5rem-3px)] bg-ink">
-                            <img src="@/assets/images/eu.jpeg" alt="Vinicius" class="aspect-[4/5] w-full object-cover"
+                            <img src="@/assets/images/eu.jpeg" :alt="t('hero.photoAlt')" class="aspect-[4/5] w-full object-cover"
                                 style="object-position: 60% 20%;">
                         </div>
                     </div>
