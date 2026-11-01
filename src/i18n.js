@@ -22,7 +22,7 @@ export const messages = {
             language: 'Mudar idioma para inglês',
         },
         hero: {
-            badge: 'Disponível para novos projetos',
+            badge: 'Aberto a oportunidades',
             greeting: 'Olá, eu sou',
             role: 'Software Engineer',
             description:
@@ -111,7 +111,7 @@ export const messages = {
             language: 'Change language to Portuguese',
         },
         hero: {
-            badge: 'Available for new projects',
+            badge: 'Open to opportunities',
             greeting: "Hi, I'm",
             role: 'Software Engineer',
             description:
