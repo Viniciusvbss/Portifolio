@@ -183,7 +183,7 @@ Props: `title`, `description`, `image` (obrigatórios), `tags`, `liveLink`, `cod
 ### `Timeline.vue`
 Card com linha do tempo, usado em Formação e Experiência.
 
-Props: `title`, `icon`, `items` (lista de `{ duration, title, subtitle }`).
+Props: `title`, `icon`, `items` (lista de `{ duration, title, subtitle, description }`; `description` é opcional).
 
 ---
 
@@ -354,10 +354,9 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 **Dados provisórios para trocar:**
 
-- Textos "Lorem ipsum" (Hero, Serviços, Projetos)
-- Link do botão *Currículo*
-- Selos "5+ anos" e "Vue.js" na foto do Hero
-- Formação, experiência e números do contador
+- Textos "Lorem ipsum" (Serviços, Projetos)
+- Números do contador
+- Habilidades
 - Projetos reais (títulos, descrições, tags e links)
 
 **Ideias de melhorias:**

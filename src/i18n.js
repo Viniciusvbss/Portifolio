@@ -60,12 +60,28 @@ export const messages = {
             education: 'Formação',
             experience: 'Experiência',
             educationItems: [
-                { duration: '03/2008 - 07/2011', title: 'Engenharia de Software', subtitle: 'Escola 1' },
-                { duration: '03/2008 - 07/2011', title: 'Engenharia de Software', subtitle: 'Escola 2' },
+                {
+                    duration: 'Mar 2023 – Dez 2025',
+                    title: 'Análise e Desenvolvimento de Sistemas',
+                    subtitle: 'Tecnólogo · Descomplica – Digital College',
+                    description: 'Curso concluído.',
+                },
             ],
             experienceItems: [
-                { duration: '03/2008 - 07/2011', title: 'Desenvolvedor Frontend', subtitle: 'Spotify' },
-                { duration: '03/2008 - 07/2011', title: 'Desenvolvedor Frontend', subtitle: 'Spotify' },
+                {
+                    duration: 'Jan 2025 – Atual',
+                    title: 'Desenvolvedor Web',
+                    subtitle: 'Freelance',
+                    description:
+                        'Landing page para uma empresa do setor financeiro em React e TypeScript, mobile-first e carregando em menos de 2 segundos. Levantamento de requisitos direto com o cliente, manutenção e correção de bugs após a entrega.',
+                },
+                {
+                    duration: '2025 – Atual',
+                    title: 'Desenvolvedor Full Stack',
+                    subtitle: 'Navalha · projeto autoral em produção',
+                    description:
+                        'SaaS de agendamento e gestão para barbearias, desenvolvido sozinho do modelo de dados ao deploy: API REST em Node.js e Express com MySQL, front-end em Vue.js e TypeScript, deploy na Vercel e na Railway.',
+                },
             ],
         },
         projects: {
@@ -149,12 +165,28 @@ export const messages = {
             education: 'Education',
             experience: 'Experience',
             educationItems: [
-                { duration: '03/2008 - 07/2011', title: 'Software Engineering', subtitle: 'School 1' },
-                { duration: '03/2008 - 07/2011', title: 'Software Engineering', subtitle: 'School 2' },
+                {
+                    duration: 'Mar 2023 – Dec 2025',
+                    title: 'Systems Analysis and Development',
+                    subtitle: "Associate's degree · Descomplica – Digital College",
+                    description: 'Completed.',
+                },
             ],
             experienceItems: [
-                { duration: '03/2008 - 07/2011', title: 'Frontend Developer', subtitle: 'Spotify' },
-                { duration: '03/2008 - 07/2011', title: 'Frontend Developer', subtitle: 'Spotify' },
+                {
+                    duration: 'Jan 2025 – Present',
+                    title: 'Web Developer',
+                    subtitle: 'Freelance',
+                    description:
+                        'Landing page for a financial services company built with React and TypeScript, mobile-first and loading in under 2 seconds. Gathered requirements directly with the client and handled maintenance and bug fixes after delivery.',
+                },
+                {
+                    duration: '2025 – Present',
+                    title: 'Full Stack Developer',
+                    subtitle: 'Navalha · personal project in production',
+                    description:
+                        'Scheduling and management SaaS for barbershops, built on my own from data model to deployment: REST API in Node.js and Express with MySQL, front-end in Vue.js and TypeScript, deployed on Vercel and Railway.',
+                },
             ],
         },
         projects: {

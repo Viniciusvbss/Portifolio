@@ -19,7 +19,10 @@ defineProps({
                 <span class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full border-4 border-mist bg-accent-violet dark:border-ink dark:bg-secondary"></span>
                 <span class="chip">{{ item.duration }}</span>
                 <h4 class="mt-3 text-lg font-bold">{{ item.title }}</h4>
-                <p class="text-sm text-primary/65 dark:text-slate-400">{{ item.subtitle }}</p>
+                <p class="text-sm font-medium text-primary/65 dark:text-slate-400">{{ item.subtitle }}</p>
+                <p v-if="item.description" class="mt-2 text-sm leading-relaxed text-primary/70 dark:text-slate-300/80">
+                    {{ item.description }}
+                </p>
             </li>
         </ol>
     </div>
