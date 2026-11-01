@@ -18,9 +18,10 @@ Este documento explica como o portfólio funciona: tecnologias, estrutura de pas
 10. [Tradução PT/EN](#10-tradução-pten)
 11. [Animações](#11-animações)
 12. [Onde editar cada conteúdo](#12-onde-editar-cada-conteúdo)
-13. [Deploy na Vercel](#13-deploy-na-vercel)
-14. [Fluxo de trabalho com Git](#14-fluxo-de-trabalho-com-git)
-15. [Pendências e próximos passos](#15-pendências-e-próximos-passos)
+13. [SEO, favicon e compartilhamento](#13-seo-favicon-e-compartilhamento)
+14. [Deploy na Vercel](#14-deploy-na-vercel)
+15. [Fluxo de trabalho com Git](#15-fluxo-de-trabalho-com-git)
+16. [Pendências e próximos passos](#16-pendências-e-próximos-passos)
 
 ---
 
@@ -90,8 +91,13 @@ Serve localmente a versão gerada pelo build, para conferir antes de publicar.
 Portifolio/
 ├── docs/
 │   └── PROJETO.md            ← este documento
-├── public/
-│   └── vite.svg              ← ícone da aba (favicon)
+├── public/                   ← arquivos servidos como estão, na raiz do site
+│   ├── favicon.svg / .ico    ← ícone da aba
+│   ├── apple-touch-icon.png  ← ícone ao salvar o site na tela do celular
+│   ├── icon-192.png / 512    ← ícones do manifest
+│   ├── og-image.jpg          ← imagem que aparece ao compartilhar o link
+│   ├── site.webmanifest      ← nome, cores e ícones do site
+│   └── curriculo-vinicius-barbosa.pdf
 ├── src/
 │   ├── assets/images/        ← foto de perfil (eu.jpeg) e prints dos projetos
 │   ├── components/
@@ -104,10 +110,11 @@ Portifolio/
 │   ├── i18n.js               ← textos em PT/EN e lógica de tradução
 │   ├── main.js               ← ponto de entrada da aplicação
 │   └── style.css             ← estilos globais e classes do design
-├── index.html                ← HTML base (fonte, tema inicial, título)
+├── .env                      ← endereço público do site (VITE_SITE_URL)
+├── index.html                ← HTML base (SEO, ícones, fonte, tema inicial)
 ├── tailwind.config.js        ← cores, fonte e animações do Tailwind
 ├── postcss.config.js
-├── vite.config.js            ← configuração do Vite e atalho "@" → src/
+├── vite.config.js            ← configuração do Vite, atalho "@" → src/ e geração de robots.txt e sitemap.xml
 └── package.json              ← dependências e scripts
 ```
 
@@ -304,7 +311,9 @@ const services = computed(() => t('services.items'));
 | Link do currículo | `HeroSection.vue` → `href` do botão *Currículo* |
 | Cores, fonte, animações | `tailwind.config.js` |
 | Estilo dos cards e classes globais | `src/style.css` |
-| Título da aba e descrição | `src/i18n.js` → `meta` (e o padrão em `index.html`) |
+| Título da aba e descrição | `index.html` (o que o Google e as redes leem) e `src/i18n.js` → `meta` (ao trocar o idioma) |
+| Endereço do site | `.env` → `VITE_SITE_URL` |
+| Imagem de compartilhamento e favicon | `public/` (ver seção 13) |
 | Itens do menu | `src/i18n.js` → `nav.menu` e `hrefs` em `Navbar.vue` |
 
 ### Adicionando um projeto novo
@@ -326,7 +335,51 @@ const services = computed(() => t('services.items'));
 
 ---
 
-## 13. Deploy na Vercel
+## 13. SEO, favicon e compartilhamento
+
+### Tags no `index.html`
+
+- **Título e descrição:** é o que aparece no resultado do Google.
+- **`canonical`:** diz ao Google qual é o endereço oficial da página.
+- **Open Graph (`og:*`):** título, descrição e imagem do card que aparece ao compartilhar o link no WhatsApp, LinkedIn, Facebook etc.
+- **Twitter Card (`twitter:*`):** o mesmo, para o X.
+- **Dados estruturados (JSON-LD, `@type: Person`):** informam ao Google nome, cargo, cidade, formação, tecnologias e redes sociais.
+
+Os buscadores e as redes leem o `index.html` sem rodar JavaScript, por isso essas tags ficam em português (o idioma padrão). O botão PT/EN muda só o título e a descrição da aba para quem está navegando.
+
+### Endereço do site (`.env`)
+
+As tags precisam do endereço completo do site. Ele fica em um só lugar:
+
+```env
+VITE_SITE_URL=https://portifolio-iota-rust.vercel.app
+```
+
+No build, o Vite troca `%VITE_SITE_URL%` no `index.html` por esse valor e o `vite.config.js` gera `robots.txt` e `sitemap.xml` com ele. **Se o domínio mudar, troque só essa linha.**
+
+### Favicon e ícones
+
+O favicon é o "V" em gradiente do logo do menu, em `public/favicon.svg`. Os PNGs e o `.ico` foram gerados a partir dele. Se mudar o SVG, gere os outros de novo (qualquer conversor de SVG para PNG/ICO serve):
+
+| Arquivo | Tamanho |
+| --- | --- |
+| `favicon.ico` | 16, 32 e 48 px |
+| `apple-touch-icon.png` | 180 × 180 |
+| `icon-192.png` / `icon-512.png` | 192 e 512 px |
+
+### Imagem de compartilhamento
+
+`public/og-image.jpg` tem **1200 × 630 px** (o tamanho recomendado). Mostra o logo, o selo "Aberto a oportunidades", nome, cargo, stack e foto. Para trocar, substitua o arquivo mantendo o nome e o tamanho.
+
+> As redes guardam a imagem em cache. Depois de trocar, use o [Post Inspector do LinkedIn](https://www.linkedin.com/post-inspector/) ou o [Depurador do Facebook](https://developers.facebook.com/tools/debug/) para atualizar.
+
+### Depois de publicar
+
+- Cadastre o site no [Google Search Console](https://search.google.com/search-console) e envie o `sitemap.xml` para o Google encontrar a página mais rápido.
+
+---
+
+## 14. Deploy na Vercel
 
 O site está publicado na Vercel. Com o repositório conectado:
 
@@ -344,11 +397,11 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 **Dicas:**
 
 - No plano gratuito (Hobby), a Vercel pode bloquear deploys de commits cujo autor não é reconhecido como membro do projeto. Por isso os commits são feitos com o nome e email do dono da conta.
-- Para trocar o endereço do site, vá em **Settings → Domains** e adicione um novo domínio (ex.: `vinicius-soares.vercel.app`).
+- Para trocar o endereço do site, vá em **Settings → Domains** e adicione um novo domínio (ex.: `vinicius-soares.vercel.app`). Depois, atualize `VITE_SITE_URL` no `.env`.
 
 ---
 
-## 14. Fluxo de trabalho com Git
+## 15. Fluxo de trabalho com Git
 
 1. Crie uma branch para cada mudança (ex.: `botao-traduzir`).
 2. Faça os commits e envie a branch para o GitHub.
@@ -357,12 +410,11 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 ---
 
-## 15. Pendências e próximos passos
+## 16. Pendências e próximos passos
 
 **Dados provisórios:** todos os textos e dados já são reais. Ao adicionar projetos novos, atualize também o contador em `Counter.vue` (projetos publicados e repositórios).
 
 **Ideias de melhorias:**
 
 - Fazer o formulário de contato enviar mensagens de verdade (Formspree, EmailJS)
-- Melhorar o SEO: imagem de compartilhamento (Open Graph) e favicon próprio
 - Trocar o nome do pacote em `package.json` (hoje `my-project-vue3`)
