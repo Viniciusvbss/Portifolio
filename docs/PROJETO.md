@@ -26,7 +26,7 @@ Este documento explica como o portfólio funciona: tecnologias, estrutura de pas
 
 ## 1. Visão geral
 
-É um site de página única (*single page*) que apresenta o Vinicius como desenvolvedor frontend. A página é dividida em seções (Hero, Números, Serviços, Habilidades, Por que eu, Projetos e Contato), com menu fixo no topo para navegar entre elas.
+É um site de página única (*single page*) que apresenta o Vinicius como desenvolvedor full stack. A página é dividida em seções (Hero, Números, Serviços, Habilidades, Por que eu, Projetos e Contato), com menu fixo no topo para navegar entre elas.
 
 Principais recursos:
 
@@ -98,6 +98,7 @@ Portifolio/
 │   │   ├── layout/           ← seções da página (Navbar, Hero, Contato...)
 │   │   └── UI/               ← peças reutilizáveis (Button, Input, Card...)
 │   ├── data/contact.js       ← email e links das redes sociais
+│   ├── data/skills.js        ← habilidades por categoria
 │   ├── App.vue               ← monta a página com todas as seções
 │   ├── i18n.js               ← textos em PT/EN e lógica de tradução
 │   ├── main.js               ← ponto de entrada da aplicação
@@ -135,7 +136,7 @@ Todas ficam em `src/components/layout/`, na ordem em que aparecem:
 | `HeroSection.vue` | — | Selo "Disponível", saudação com o nome, função, descrição, botões *Me contrate* e *Currículo*, redes sociais e foto com selos flutuantes. |
 | `Counter.vue` | — | Faixa com 4 números animados (projetos, clientes, anos). Os números só animam quando a faixa aparece na tela (`IntersectionObserver`). |
 | `Services.vue` | `#services` | Grade com 6 cards de serviços, cada um com ícone. |
-| `Skills.vue` | `#skills` | 8 cards de tecnologias com logo, porcentagem animada e barra de progresso. |
+| `Skills.vue` | `#skills` | 6 cards por categoria (Front-end, Back-end, Banco de dados, Infraestrutura, Ferramentas, Outras linguagens), cada um com as tecnologias e seus logos. |
 | `Whyme.vue` | `#whyme` | Junta `Education.vue` e `Experience.vue`, que são linhas do tempo (usam o componente `Timeline`). |
 | `Projects.vue` | `#projects` | Carrossel (Swiper) com os projetos. Mostra 1, 2 ou 3 cards conforme a largura da tela, com autoplay, setas e paginação. |
 | `Contact.vue` | `#contact` | Card dividido: informações de contato e redes à esquerda, formulário à direita. |
@@ -280,8 +281,7 @@ const services = computed(() => t('services.items'));
 ## 11. Animações
 
 - **AOS:** qualquer elemento com `data-aos="fade-up"` (ou `fade-left`, `zoom-in`...) anima ao aparecer na tela. `data-aos-delay` define um atraso em milissegundos. Configuração em `src/main.js`.
-- **Contadores:** `Counter.vue` e `Skills.vue` usam `IntersectionObserver` para só começar a contar quando a seção aparece.
-- **Barras de habilidade:** a largura vai de 0% até a porcentagem com uma transição de 2 segundos.
+- **Contadores:** `Counter.vue` usa `IntersectionObserver` para só começar a contar quando a faixa aparece.
 - **Carrossel:** autoplay a cada 5 segundos, pausando quando o mouse está em cima.
 
 ---
@@ -294,7 +294,7 @@ const services = computed(() => t('services.items'));
 | Formação e experiência | `src/i18n.js` → `whyme.educationItems` / `whyme.experienceItems` |
 | Serviços (nomes e descrições) | `src/i18n.js` → `services.items` · ícones em `Services.vue` |
 | Números do contador | `Counter.vue` (valores) · `src/i18n.js` → `counter` (rótulos) |
-| Habilidades (nome, %, logo, cor) | `Skills.vue` → lista `skills` |
+| Habilidades (tecnologias e logos) | `src/data/skills.js` · títulos das categorias em `src/i18n.js` → `skills.categories` |
 | Projetos (imagens, tags, links) | `Projects.vue` · textos em `src/i18n.js` → `projects` |
 | Imagens dos projetos | `src/assets/images/` e os `import` no topo de `Projects.vue` |
 | Foto de perfil | `src/assets/images/eu.jpeg` |
@@ -356,7 +356,6 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 - Textos "Lorem ipsum" (Serviços, Projetos)
 - Números do contador
-- Habilidades
 - Projetos reais (títulos, descrições, tags e links)
 
 **Ideias de melhorias:**

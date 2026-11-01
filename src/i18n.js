@@ -52,6 +52,14 @@ export const messages = {
             eyebrow: 'Ferramentas',
             title: 'Minhas Habilidades',
             subtitle: 'Tecnologias e ferramentas que uso no dia a dia para tirar ideias do papel.',
+            categories: {
+                frontend: 'Front-end',
+                backend: 'Back-end',
+                database: 'Banco de dados',
+                infra: 'Infraestrutura e deploy',
+                tools: 'Ferramentas',
+                languages: 'Outras linguagens',
+            },
         },
         whyme: {
             eyebrow: 'Trajetória',
@@ -162,6 +170,14 @@ export const messages = {
             eyebrow: 'Toolbox',
             title: 'My Skills',
             subtitle: 'Technologies and tools I use every day to bring ideas to life.',
+            categories: {
+                frontend: 'Front-end',
+                backend: 'Back-end',
+                database: 'Database',
+                infra: 'Infrastructure & deploy',
+                tools: 'Tools',
+                languages: 'Other languages',
+            },
         },
         whyme: {
             eyebrow: 'Journey',
