@@ -99,6 +99,7 @@ Portifolio/
 │   │   └── UI/               ← peças reutilizáveis (Button, Input, Card...)
 │   ├── data/contact.js       ← email e links das redes sociais
 │   ├── data/skills.js        ← habilidades por categoria
+│   ├── data/projects.js      ← projetos do carrossel
 │   ├── App.vue               ← monta a página com todas as seções
 │   ├── i18n.js               ← textos em PT/EN e lógica de tradução
 │   ├── main.js               ← ponto de entrada da aplicação
@@ -177,9 +178,9 @@ Cabeçalho padrão das seções: selo pequeno (*eyebrow*), título, linha em gra
 Props: `title` (obrigatório), `eyebrow`, `subtitle`.
 
 ### `ProjectCard.vue`
-Card de projeto com imagem (zoom ao passar o mouse), título, descrição, tags e links.
+Card de projeto com imagem (zoom ao passar o mouse), título, descrição, tags e links. Sem `image`, mostra uma capa gerada com gradiente e o ícone de `icon`. Os links só aparecem quando existem.
 
-Props: `title`, `description`, `image` (obrigatórios), `tags`, `liveLink`, `codeLink`, `liveLabel`, `codeLabel`.
+Props: `title` e `description` (obrigatórios), `image`, `icon`, `tags`, `liveLink`, `codeLink`, `liveLabel`, `codeLabel`.
 
 ### `Timeline.vue`
 Card com linha do tempo, usado em Formação e Experiência.
@@ -295,8 +296,8 @@ const services = computed(() => t('services.items'));
 | Serviços (nomes e descrições) | `src/i18n.js` → `services.items` · ícones em `Services.vue` |
 | Números do contador | `Counter.vue` (valores) · `src/i18n.js` → `counter` (rótulos) |
 | Habilidades (tecnologias e logos) | `src/data/skills.js` · títulos das categorias em `src/i18n.js` → `skills.categories` |
-| Projetos (imagens, tags, links) | `Projects.vue` · textos em `src/i18n.js` → `projects` |
-| Imagens dos projetos | `src/assets/images/` e os `import` no topo de `Projects.vue` |
+| Projetos (textos, tags, links, imagem ou ícone) | `src/data/projects.js` |
+| Imagens dos projetos | `src/assets/images/` e os `import` no topo de `src/data/projects.js` |
 | Foto de perfil | `src/assets/images/eu.jpeg` |
 | Email e redes sociais (Hero e Contato) | `src/data/contact.js` |
 | Localização | `src/i18n.js` → `contact.location` |
@@ -308,14 +309,20 @@ const services = computed(() => t('services.items'));
 
 ### Adicionando um projeto novo
 
-1. Coloque a imagem em `src/assets/images/` (ex.: `project-5.png`).
-2. Em `Projects.vue`, importe a imagem e adicione na lista:
+1. Se tiver um print, coloque em `src/assets/images/` (ex.: `meu-projeto.png`) e importe no topo de `src/data/projects.js`.
+2. Adicione um objeto na lista `projects`:
    ```js
-   import project5 from '@/assets/images/project-5.png';
-   // ...
-   [project1, project2, project3, project4, project5]
+   {
+       id: 'meu-projeto',
+       image: meuProjeto,          // ou, sem print: icon: 'mdi:rocket-launch-outline'
+       title: { pt: 'Meu Projeto', en: 'My Project' },
+       description: { pt: 'Descrição em português.', en: 'English description.' },
+       tags: ['Vue.js', 'Node.js'],
+       liveLink: 'https://meu-projeto.vercel.app', // opcional
+       codeLink: 'https://github.com/Viniciusvbss/meu-projeto', // opcional
+   },
    ```
-3. Hoje todos os projetos usam o mesmo título, descrição, tags e links. Para ter textos diferentes em cada projeto, o ideal é transformar `projects` em `src/i18n.js` em uma lista, igual a `services.items`.
+3. A ordem da lista é a ordem do carrossel.
 
 ---
 
@@ -354,13 +361,11 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 **Dados provisórios para trocar:**
 
-- Textos "Lorem ipsum" (Serviços, Projetos)
 - Números do contador
-- Projetos reais (títulos, descrições, tags e links)
+- Prints reais dos projetos que hoje usam capa gerada (Navalha, GaragemX, API Node, Busca de Perfil)
 
 **Ideias de melhorias:**
 
 - Fazer o formulário de contato enviar mensagens de verdade (Formspree, EmailJS)
 - Melhorar o SEO: imagem de compartilhamento (Open Graph) e favicon próprio
-- Ter textos diferentes para cada projeto (ver [seção 12](#adicionando-um-projeto-novo))
 - Trocar o nome do pacote em `package.json` (hoje `my-project-vue3`)

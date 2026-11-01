@@ -3,11 +3,6 @@ import { ref, watch } from 'vue';
 const STORAGE_KEY = 'locale';
 const SUPPORTED = ['pt', 'en'];
 
-const lorem =
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error numquam corrupti repellendus architecto officiis autem expedita.';
-const loremProject =
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat fugit sequi similique, asperiores quisquam nostrum, enim ut repellendus vitae earum consectetur recusandae.';
-
 export const messages = {
     pt: {
         meta: {
@@ -38,14 +33,14 @@ export const messages = {
         services: {
             eyebrow: 'O que eu faço',
             title: 'Meus Serviços',
-            subtitle: 'Soluções feitas com cuidado, do primeiro rascunho até a produção.',
+            subtitle: 'O que posso construir para você, do banco de dados ao deploy.',
             items: [
-                { name: 'Desenvolvimento Web', description: lorem },
-                { name: 'Design UI / UX', description: lorem },
-                { name: 'Design Responsivo', description: lorem },
-                { name: 'Redação Técnica', description: lorem },
-                { name: 'Performance', description: lorem },
-                { name: 'Consultoria', description: lorem },
+                { name: 'Aplicações Web Full Stack', description: 'Sistemas completos, do banco de dados ao deploy, como o Navalha, um SaaS de agendamento em produção.' },
+                { name: 'Landing Pages', description: 'Páginas rápidas, responsivas e com foco em conversão, com HTML semântico e boas práticas de acessibilidade.' },
+                { name: 'APIs REST', description: 'Back-end em Node.js e Express, com autenticação JWT, controle de acesso por perfil e validação no servidor.' },
+                { name: 'Front-end com Vue e React', description: 'Interfaces mobile-first em Vue.js e React com TypeScript e Tailwind CSS, a partir de protótipos no Figma.' },
+                { name: 'Banco de Dados', description: 'Modelagem relacional em MySQL, com chaves estrangeiras e consultas pensadas para as regras do negócio.' },
+                { name: 'Deploy e Infraestrutura', description: 'Publicação na Vercel e na Railway, armazenamento em S3, CORS e variáveis de ambiente configurados.' },
             ],
         },
         skills: {
@@ -100,9 +95,7 @@ export const messages = {
         projects: {
             eyebrow: 'Portfólio',
             title: 'Meus Projetos',
-            subtitle: 'Uma seleção de coisas que construí recentemente.',
-            itemTitle: 'Site de Portfólio',
-            itemDescription: loremProject,
+            subtitle: 'Alguns dos projetos que desenvolvi, do SaaS em produção aos estudos.',
             live: 'Ver online',
             code: 'Ver código',
             prev: 'Projeto anterior',
@@ -156,14 +149,14 @@ export const messages = {
         services: {
             eyebrow: 'What I do',
             title: 'My Services',
-            subtitle: 'Solutions crafted with care, from the first sketch to production.',
+            subtitle: 'What I can build for you, from the database to deployment.',
             items: [
-                { name: 'Web Development', description: lorem },
-                { name: 'UI / UX Design', description: lorem },
-                { name: 'Responsive Design', description: lorem },
-                { name: 'Technical Writing', description: lorem },
-                { name: 'Performance', description: lorem },
-                { name: 'Consulting', description: lorem },
+                { name: 'Full Stack Web Apps', description: 'Complete systems from database to deployment, like Navalha, a scheduling SaaS live in production.' },
+                { name: 'Landing Pages', description: 'Fast, responsive, conversion-focused pages with semantic HTML and accessibility best practices.' },
+                { name: 'REST APIs', description: 'Node.js and Express back-ends with JWT authentication, role-based access control and server-side validation.' },
+                { name: 'Vue & React Front-end', description: 'Mobile-first interfaces in Vue.js and React with TypeScript and Tailwind CSS, built from Figma prototypes.' },
+                { name: 'Databases', description: 'Relational modeling in MySQL, with foreign keys and queries designed around the business rules.' },
+                { name: 'Deploy & Infrastructure', description: 'Deployment on Vercel and Railway, S3 storage, and properly configured CORS and environment variables.' },
             ],
         },
         skills: {
@@ -218,9 +211,7 @@ export const messages = {
         projects: {
             eyebrow: 'Portfolio',
             title: 'My Projects',
-            subtitle: "A selection of things I've built recently.",
-            itemTitle: 'Portfolio Website',
-            itemDescription: loremProject,
+            subtitle: "Some of the projects I've built, from a SaaS in production to study projects.",
             live: 'Live Demo',
             code: 'View Code',
             prev: 'Previous project',
