@@ -1,12 +1,7 @@
 <script setup>
 import Button from '../UI/Button.vue';
 import { t } from '@/i18n';
-
-const socials = [
-    { icon: 'mdi:github', href: '', label: 'GitHub' },
-    { icon: 'mdi:linkedin', href: '', label: 'LinkedIn' },
-    { icon: 'mdi:instagram', href: '', label: 'Instagram' },
-];
+import { socials } from '@/data/contact';
 </script>
 
 <template>
@@ -43,7 +38,7 @@ const socials = [
 
                 <ul class="mt-10 flex items-center justify-center gap-3 lg:justify-start">
                     <li v-for="s in socials" :key="s.label">
-                        <a :href="s.href" :aria-label="s.label"
+                        <a :href="s.href" :aria-label="s.label" :title="s.label" target="_blank" rel="noopener noreferrer"
                             class="grid h-11 w-11 place-items-center rounded-full border border-primary/10 bg-white/50 text-xl transition hover:-translate-y-1 hover:border-accent-violet hover:text-accent-violet dark:border-white/10 dark:bg-white/5 dark:hover:border-secondary dark:hover:text-secondary">
                             <Icon :icon="s.icon" />
                         </a>

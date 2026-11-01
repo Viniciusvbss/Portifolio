@@ -86,7 +86,7 @@ export const messages = {
             reply: 'Costumo responder em até 24 horas.',
             emailLabel: 'Email',
             locationLabel: 'Localização',
-            location: 'Brasil',
+            location: 'Recife, Pernambuco — Brasil',
             fields: {
                 email: { label: 'Seu email', placeholder: 'email@exemplo.com' },
                 subject: { label: 'Assunto', placeholder: 'Conte como posso te ajudar' },
@@ -172,7 +172,7 @@ export const messages = {
             reply: 'I usually reply within 24 hours.',
             emailLabel: 'Email',
             locationLabel: 'Location',
-            location: 'Brazil',
+            location: 'Recife, Pernambuco — Brazil',
             fields: {
                 email: { label: 'Your email', placeholder: 'email@example.com' },
                 subject: { label: 'Subject', placeholder: 'Let me know how I can help you' },

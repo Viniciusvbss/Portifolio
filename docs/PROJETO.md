@@ -97,6 +97,7 @@ Portifolio/
 │   ├── components/
 │   │   ├── layout/           ← seções da página (Navbar, Hero, Contato...)
 │   │   └── UI/               ← peças reutilizáveis (Button, Input, Card...)
+│   ├── data/contact.js       ← email e links das redes sociais
 │   ├── App.vue               ← monta a página com todas as seções
 │   ├── i18n.js               ← textos em PT/EN e lógica de tradução
 │   ├── main.js               ← ponto de entrada da aplicação
@@ -297,8 +298,8 @@ const services = computed(() => t('services.items'));
 | Projetos (imagens, tags, links) | `Projects.vue` · textos em `src/i18n.js` → `projects` |
 | Imagens dos projetos | `src/assets/images/` e os `import` no topo de `Projects.vue` |
 | Foto de perfil | `src/assets/images/eu.jpeg` |
-| Redes sociais do Hero | `HeroSection.vue` → lista `socials` |
-| Email e redes do Contato | `Contact.vue` → `contactInfo` e `socials` |
+| Email e redes sociais (Hero e Contato) | `src/data/contact.js` |
+| Localização | `src/i18n.js` → `contact.location` |
 | Link do currículo | `HeroSection.vue` → `href` do botão *Currículo* |
 | Cores, fonte, animações | `tailwind.config.js` |
 | Estilo dos cards e classes globais | `src/style.css` |
@@ -354,8 +355,6 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 **Dados provisórios para trocar:**
 
 - Textos "Lorem ipsum" (Hero, Serviços, Projetos)
-- Email `hello@example.com` e localização no Contato
-- Links das redes sociais (Hero e Contato), que hoje estão vazios
 - Link do botão *Currículo*
 - Selos "5+ anos" e "Vue.js" na foto do Hero
 - Formação, experiência e números do contador
