@@ -147,7 +147,7 @@ Todas ficam em `src/components/layout/`, na ordem em que aparecem:
 | `Skills.vue` | `#skills` | 6 cards por categoria (Front-end, Back-end, Banco de dados, Infraestrutura, Ferramentas, Outras linguagens), cada um com as tecnologias e seus logos. |
 | `Whyme.vue` | `#whyme` | Junta `Education.vue` e `Experience.vue`, que são linhas do tempo (usam o componente `Timeline`). |
 | `Projects.vue` | `#projects` | Carrossel (Swiper) com os projetos. Mostra 1, 2 ou 3 cards conforme a largura da tela, com autoplay, setas e paginação. |
-| `Contact.vue` | `#contact` | Card dividido: informações de contato e redes à esquerda, formulário à direita. |
+| `Contact.vue` | `#contact` | Card dividido: informações de contato e redes à esquerda, formulário à direita (envio pelo Web3Forms; ver seção 12). |
 | `Footer.vue` | — | Logo e direitos autorais com o ano atual. |
 | `BackToTop.vue` | — | Botão flutuante "voltar ao topo", aparece depois de rolar 400px. |
 | `LoadingSpinner.vue` | — | Indicador de carregamento inicial. |
@@ -313,6 +313,7 @@ const services = computed(() => t('services.items'));
 | Estilo dos cards e classes globais | `src/style.css` |
 | Título da aba e descrição | `index.html` (o que o Google e as redes leem) e `src/i18n.js` → `meta` (ao trocar o idioma) |
 | Endereço do site | `.env` → `VITE_SITE_URL` |
+| Chave do formulário de contato | `.env` → `VITE_WEB3FORMS_KEY` |
 | Imagem de compartilhamento e favicon | `public/` (ver seção 13) |
 | Itens do menu | `src/i18n.js` → `nav.menu` e `hrefs` em `Navbar.vue` |
 
@@ -332,6 +333,32 @@ const services = computed(() => t('services.items'));
    },
    ```
 3. A ordem da lista é a ordem do carrossel.
+
+### Formulário de contato
+
+O formulário (nome, email, assunto e mensagem) envia as mensagens pelo [Web3Forms](https://web3forms.com), um serviço gratuito (250 mensagens por mês) que repassa tudo para o seu email, sem precisar de servidor.
+
+**Como ativar:**
+
+1. Entre em [web3forms.com](https://web3forms.com), digite o seu email e clique em **Create Access Key**.
+2. A chave chega no seu email.
+3. Coloque a chave no `.env`:
+   ```env
+   VITE_WEB3FORMS_KEY=sua-chave-aqui
+   ```
+   Ou, sem mexer no código, crie a variável `VITE_WEB3FORMS_KEY` na Vercel em **Settings → Environment Variables** e faça um novo deploy.
+
+A chave pode ficar pública: ela só permite **enviar** mensagens para o seu email.
+
+**Como funciona:**
+
+- O navegador valida os campos antes de enviar (todos obrigatórios, email válido).
+- Enquanto envia, o botão mostra "Enviando..." e fica desativado.
+- **Sucesso:** mensagem verde e os campos são limpos.
+- **Erro:** mensagem vermelha com o seu email, e o texto digitado não se perde.
+- **Sem chave configurada:** o formulário abre o app de email do visitante com a mensagem pronta.
+- Um campo invisível (*honeypot*) bloqueia robôs de spam.
+- O assunto chega como "Contato pelo portfólio: …", e responder ao email responde direto para quem escreveu.
 
 ---
 
@@ -416,5 +443,4 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 **Ideias de melhorias:**
 
-- Fazer o formulário de contato enviar mensagens de verdade (Formspree, EmailJS)
 - Trocar o nome do pacote em `package.json` (hoje `my-project-vue3`)
