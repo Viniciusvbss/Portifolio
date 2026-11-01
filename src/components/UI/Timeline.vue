@@ -25,5 +25,6 @@ defineProps({
                 </p>
             </li>
         </ol>
+        <slot />
     </div>
 </template>

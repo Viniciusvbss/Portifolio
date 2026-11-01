@@ -59,6 +59,11 @@ export const messages = {
             subtitle: 'Um resumo de onde estudei e onde já trabalhei.',
             education: 'Formação',
             experience: 'Experiência',
+            languagesTitle: 'Idiomas',
+            languages: [
+                { name: 'Português', level: 'Nativo' },
+                { name: 'Inglês', level: 'Leitura de documentação técnica' },
+            ],
             educationItems: [
                 {
                     duration: 'Mar 2023 – Dez 2025',
@@ -164,6 +169,11 @@ export const messages = {
             subtitle: "A quick look at where I studied and where I've worked.",
             education: 'Education',
             experience: 'Experience',
+            languagesTitle: 'Languages',
+            languages: [
+                { name: 'Portuguese', level: 'Native' },
+                { name: 'English', level: 'Reading technical documentation' },
+            ],
             educationItems: [
                 {
                     duration: 'Mar 2023 – Dec 2025',
