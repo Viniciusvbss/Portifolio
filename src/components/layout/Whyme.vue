@@ -1,17 +1,16 @@
 <script setup>
 import SectionHeader from '../UI/SectionHeader.vue';
-import Education from '../layout/Education.vue';
-import Experience from '../layout/Experience.vue';
-
-
+import Education from './Education.vue';
+import Experience from './Experience.vue';
 </script>
 
 <template>
-   <section id="whyme" class="mt-32">
-        <SectionHeader title="Why me" />
-        <div class="grid grid-cols-1 lg:grid-cols-2 p-12 overflow-hidden">
-            <Education data-aos="fade-left"/>
-            <Experience data-aos="fade-right" />
+    <section id="whyme" class="container-x pt-32">
+        <SectionHeader eyebrow="Journey" title="Why Me"
+            subtitle="A quick look at where I studied and where I've worked." />
+        <div class="grid gap-6 lg:grid-cols-2">
+            <Education data-aos="fade-right" />
+            <Experience data-aos="fade-left" />
         </div>
-   </section>
+    </section>
 </template>

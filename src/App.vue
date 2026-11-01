@@ -15,34 +15,35 @@ import LoadingSpinner from '@/components/layout/LoadingSpinner.vue';
 </script>
 
 <template>
-  <div class="bg-[#D4EBF8] dark:bg-[#080326] min-h-screen">
+  <div class="relative min-h-screen overflow-x-clip">
+    <!-- Background decoration -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-20">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,9,87,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,9,87,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"></div>
+      <div class="blob -top-40 -left-40 w-[36rem] bg-accent-cyan"></div>
+      <div class="blob top-1/3 -right-40 w-[32rem] bg-accent-violet"></div>
+      <div class="blob bottom-0 left-1/4 w-[28rem] bg-secondary !opacity-20 dark:!opacity-10"></div>
+    </div>
+
     <Suspense>
       <template #default>
         <div>
           <Navbar />
-          <HeroSection />
-          <Counter />
-          <Services />
-          <Skills />
-          <Whyme />
-          <Projects />
-          <Contact />
+          <main>
+            <HeroSection />
+            <Counter />
+            <Services />
+            <Skills />
+            <Whyme />
+            <Projects />
+            <Contact />
+          </main>
           <Footer />
           <BackToTop />
         </div>
       </template>
       <template #fallback>
-        <div class="flex justify-center items-center min-h-screen">
-          <LoadingSpinner />
-        </div>
+        <LoadingSpinner />
       </template>
     </Suspense>
   </div>
 </template>
-
-<style>
-body {
-  scrollbar-width: thin;
-  scrollbar-color: #111827 #f1f1f1;
-}
-</style>

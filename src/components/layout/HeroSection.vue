@@ -1,70 +1,89 @@
 <script setup>
 import Button from '../UI/Button.vue';
-import { Icon } from '@iconify/vue';
+
+const socials = [
+    { icon: 'mdi:github', href: '', label: 'GitHub' },
+    { icon: 'mdi:linkedin', href: '', label: 'LinkedIn' },
+    { icon: 'mdi:instagram', href: '', label: 'Instagram' },
+];
 </script>
 
 <template>
-    <section data-aos="zoom-in" class="flex justify-center items-center dark:text-white min-h-screen mt-20 lg:mt-0">
-        <header class="absolute w-1/2 aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-r from-[#00c6cc] 
-        via-[#785ae4] to-secondary opacity-30 dark:opacity-20 blur-[100px] left-10 top-0 hidden md:block"></header>
-        <header class="absolute w-1/2 aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-r from-[#00c6cc] 
-        via-[#785ae4] to-secondary opacity-30 dark:opacity-20 blur-[100px] right-10 bottom-0 hidden md:block"></header>
-        <main class="absolute grid lg:grid-cols-2 grid-cols-1 items-center p-2 lg:p-8">
-            <header class="text-center lg:text-left">
-                <h1 class="md-6 text-4xl md:text-5xl lg:text-6xl font-bold">
-                    👋 Hi, I'm <span
-                        class="text-secondary stroke-text text-stroke-primary dark:text-stroke-secondary">Vinicius</span>
+    <section class="container-x flex min-h-screen items-center pb-16 pt-32 lg:pt-24">
+        <div class="grid w-full items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
+            <div class="text-center lg:text-left" data-aos="fade-right">
+                <span class="glass !rounded-full inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                    </span>
+                    Available for new projects
+                </span>
+
+                <h1 class="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+                    <span class="inline-block origin-[70%_70%] animate-[wave_2.5s_ease-in-out_infinite]">👋</span>
+                    Hi, I'm <span class="gradient-text animate-shimmer whitespace-nowrap">Vinicius</span>
                 </h1>
-                <p class="text-lg max-w-xl mx-auto lg:mx-0 font-semibold pt-6">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde molestiae a vel beatae molestias, quo
-                    nostrum non doloremque, explicabo consequuntur voluptatum reiciendis omnis ea qui sit praesentium
-                    blanditiis dicta laudantium.
+                <p class="mt-4 text-xl font-semibold text-primary/80 md:text-2xl dark:text-slate-300">
+                    Frontend Developer &amp; UI enthusiast
                 </p>
-                <div class="mt-6 flex justify-center lg:justify-start">
-                    <Button label="Hire me" />
+                <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-primary/65 lg:mx-0 dark:text-slate-400">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde molestiae a vel beatae molestias, quo
+                    nostrum non doloremque, explicabo consequuntur voluptatum reiciendis omnis ea qui sit praesentium.
+                </p>
+
+                <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                    <Button label="Hire me" href="#contact" icon="mdi:arrow-right" />
                     <a href=""
-                        class="font-semibold text-lg w-[10rem] h-[55px] dark:text-secondary rounded-full ml-2 border-2 dark:border-secondary hover:scale-105 bg-white dark:bg-transparent flex justify-center items-center text-primary border-primary">
-                        <Icon icon="line-md:download-loop" class="text-3xl" />
-                        <span class="ml-1">Resume</span>
+                        class="inline-flex h-14 items-center gap-2 rounded-full border-2 border-primary/15 bg-white/50 px-7 text-lg font-semibold backdrop-blur transition hover:border-primary hover:bg-white dark:border-white/15 dark:bg-white/5 dark:hover:border-secondary dark:hover:text-secondary">
+                        <Icon icon="line-md:download-loop" class="text-2xl" />
+                        Resume
                     </a>
                 </div>
-            </header>
-            <aside class="container flex justify-center lg:justify-end lg:mt-0 items-center flex-wrap">
-                <figure
-                    class="card relative m-[30px] md:w-[420px] md:h-[420px] md:before:w-[450px] md:before:h-[450px] w-[280px] h-[350px]
-                before:w-[300px] before:h-[300px] before:border-[25px] before:border-primary before:shadow-[7px_7px_21px_primary,_-7px_-7px_21px_primary]
-                dark:before:border-secondary dark:before:shadow-[7px_7px_21px_secondary,_-7px_-7px_21px_secondary]">
-                    <div class="relative w-full h-full bg-cover transform translate-x-[10px] translate-y-[10px]">
-                        <img src="@/assets/images/eu.jpeg" alt="Hero picture" class="w-full h-full object-cover"
-                            style="object-position: 60% 20%;" loading="lazy">
+
+                <ul class="mt-10 flex items-center justify-center gap-3 lg:justify-start">
+                    <li v-for="s in socials" :key="s.label">
+                        <a :href="s.href" :aria-label="s.label"
+                            class="grid h-11 w-11 place-items-center rounded-full border border-primary/10 bg-white/50 text-xl transition hover:-translate-y-1 hover:border-accent-violet hover:text-accent-violet dark:border-white/10 dark:bg-white/5 dark:hover:border-secondary dark:hover:text-secondary">
+                            <Icon :icon="s.icon" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="relative mx-auto w-full max-w-sm lg:max-w-md" data-aos="fade-left">
+                <div class="absolute -inset-6 -z-10 rounded-full bg-gradient-to-tr from-accent-cyan via-accent-violet to-secondary opacity-40 blur-3xl dark:opacity-30"></div>
+                <div class="animate-float">
+                    <div class="relative rounded-[2.5rem] bg-gradient-to-tr from-accent-cyan via-accent-violet to-secondary p-[3px] shadow-2xl">
+                        <div class="overflow-hidden rounded-[calc(2.5rem-3px)] bg-ink">
+                            <img src="@/assets/images/eu.jpeg" alt="Vinicius" class="aspect-[4/5] w-full object-cover"
+                                style="object-position: 60% 20%;">
+                        </div>
                     </div>
-                </figure>
-            </aside>
-        </main>
-        <svg class="hidden">
-            <filter id="wavy1">
-                <feTurbulence x="0" y="0" baseFrequency="0.2" numOctaves="5" seed="1"></feTurbulence>
-                <feDisplacementMap in="SourceGraphic" scale="30" />
-            </filter>
-        </svg>
+                    <div class="glass absolute -bottom-6 -left-4 flex items-center gap-3 !rounded-2xl px-4 py-3 sm:-left-10">
+                        <span class="grid h-10 w-10 place-items-center rounded-xl bg-secondary text-xl text-primary">
+                            <Icon icon="mdi:code-tags" />
+                        </span>
+                        <div class="text-left">
+                            <p class="text-lg font-extrabold leading-none">5+ years</p>
+                            <p class="text-xs text-primary/60 dark:text-slate-400">of experience</p>
+                        </div>
+                    </div>
+                    <div class="glass absolute -right-3 top-8 flex items-center gap-2 !rounded-2xl px-4 py-2.5 text-sm font-bold sm:-right-8">
+                        <Icon icon="logos:vue" class="text-xl" /> Vue.js
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 
 <style scoped>
-.container .card:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background: transparent;
+@keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
 }
-
-.container .card:nth-of-type(1)::before {
-    filter: url(#wavy1);
-}
-
-/* .card {
-    overflow: hidden;
-} */
 </style>
