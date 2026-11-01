@@ -29,7 +29,7 @@ export const messages = {
             experienceValue: '3 anos',
             experienceLabel: 'de experiência',
         },
-        counter: ['Projetos criados', 'Projetos', 'Clientes satisfeitos', 'Anos'],
+        counter: ['Anos de experiência', 'SaaS em produção', 'Projetos publicados', 'Repositórios no GitHub'],
         services: {
             eyebrow: 'O que eu faço',
             title: 'Meus Serviços',
@@ -145,7 +145,7 @@ export const messages = {
             experienceValue: '3 years',
             experienceLabel: 'of experience',
         },
-        counter: ['Created projects', 'Projects', 'Happy clients', 'Years'],
+        counter: ['Years of experience', 'SaaS in production', 'Published projects', 'GitHub repositories'],
         services: {
             eyebrow: 'What I do',
             title: 'My Services',

@@ -2,11 +2,12 @@
 import { ref, computed, onMounted } from 'vue';
 import { t } from '@/i18n';
 
+// Real numbers; labels come from src/i18n.js → counter (same order).
 const stats = [
-    { id: 1, number: 12, icon: 'mdi:rocket-launch-outline' },
-    { id: 2, number: 200, icon: 'mdi:folder-star-outline' },
-    { id: 3, number: 120, icon: 'mdi:emoticon-happy-outline' },
-    { id: 4, number: 5, icon: 'mdi:calendar-check-outline' },
+    { id: 1, number: 3, icon: 'mdi:calendar-check-outline' },
+    { id: 2, number: 1, icon: 'mdi:rocket-launch-outline' },
+    { id: 3, number: 4, icon: 'mdi:web' },
+    { id: 4, number: 30, suffix: '+', icon: 'mdi:github' },
 ];
 const numbers = computed(() => stats.map((s, i) => ({ ...s, title: t('counter')[i] })));
 
@@ -31,7 +32,7 @@ onMounted(() => {
             <li v-for="element in numbers" :key="element.id" class="flex flex-col items-center text-center">
                 <Icon :icon="element.icon" class="mb-2 text-3xl text-accent-violet dark:text-secondary" />
                 <p class="flex text-3xl font-extrabold md:text-4xl">
-                    +<Countup v-if="hasIntersected" :endVal="element.number" /><span v-else>0</span>
+                    <Countup v-if="hasIntersected" :endVal="element.number" /><span v-else>0</span>{{ element.suffix }}
                 </p>
                 <p class="mt-1 text-sm font-medium text-primary/60 dark:text-slate-400">{{ element.title }}</p>
             </li>

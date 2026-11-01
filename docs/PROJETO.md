@@ -135,7 +135,7 @@ Todas ficam em `src/components/layout/`, na ordem em que aparecem:
 | --- | --- | --- |
 | `Navbar.vue` | — | Menu fixo no topo. Fica com fundo de vidro ao rolar. Tem o botão **PT/EN**, o botão de tema e o menu do celular. |
 | `HeroSection.vue` | — | Selo "Disponível", saudação com o nome, função, descrição, botões *Me contrate* e *Currículo*, redes sociais e foto com selos flutuantes. |
-| `Counter.vue` | — | Faixa com 4 números animados (projetos, clientes, anos). Os números só animam quando a faixa aparece na tela (`IntersectionObserver`). |
+| `Counter.vue` | — | Faixa com 4 números animados (anos de experiência, SaaS em produção, projetos publicados, repositórios). Os números só animam quando a faixa aparece na tela (`IntersectionObserver`). |
 | `Services.vue` | `#services` | Grade com 6 cards de serviços, cada um com ícone. |
 | `Skills.vue` | `#skills` | 6 cards por categoria (Front-end, Back-end, Banco de dados, Infraestrutura, Ferramentas, Outras linguagens), cada um com as tecnologias e seus logos. |
 | `Whyme.vue` | `#whyme` | Junta `Education.vue` e `Experience.vue`, que são linhas do tempo (usam o componente `Timeline`). |
@@ -359,9 +359,7 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 ## 15. Pendências e próximos passos
 
-**Dados provisórios para trocar:**
-
-- Números do contador
+**Dados provisórios:** todos os textos e dados já são reais. Ao adicionar projetos novos, atualize também o contador em `Counter.vue` (projetos publicados e repositórios).
 
 **Ideias de melhorias:**
 
