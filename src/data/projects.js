@@ -3,17 +3,17 @@
 // using `icon` (see ProjectCard.vue).
 import burgueria from '@/assets/images/burgueria.png';
 import avanti from '@/assets/images/avanti-ecommerce.png';
-import navalha from '@/assets/images/navalha.png';
+import barberSaas from '@/assets/images/barbersaas.png';
 import cocaCola from '@/assets/images/coca-cola.png';
 
 const GH = 'https://github.com/Viniciusvbss';
 
 export const projects = [
     {
-        id: 'navalha',
-        image: navalha,
+        id: 'barbersaas',
+        image: barberSaas,
         icon: 'mdi:content-cut',
-        title: { pt: 'Navalha — SaaS para barbearias', en: 'Navalha — SaaS for barbershops' },
+        title: { pt: 'BarberSaaS — gestão para barbearias', en: 'BarberSaaS — barbershop management' },
         description: {
             pt: 'SaaS de agendamento e gestão para barbearias, em produção. Desenvolvido sozinho, do modelo de dados ao deploy.',
             en: 'Scheduling and management SaaS for barbershops, live in production. Built on my own, from data model to deployment.',

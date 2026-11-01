@@ -21,7 +21,7 @@ export const messages = {
             greeting: 'Olá, eu sou',
             role: 'Software Engineer',
             description:
-                'Sou desenvolvedor full stack, formado em Análise e Desenvolvimento de Sistemas, e construo aplicações completas, do banco de dados ao deploy. Trabalho com Node.js, TypeScript, Vue.js, React e MySQL, e meu principal projeto é o Navalha, um SaaS para barbearias que desenvolvi sozinho e está em produção.',
+                'Sou desenvolvedor full stack, formado em Análise e Desenvolvimento de Sistemas, e construo aplicações completas, do banco de dados ao deploy. Trabalho com Node.js, TypeScript, Vue.js, React e MySQL, e meu principal projeto é o BarberSaaS, um SaaS para barbearias que desenvolvi sozinho e está em produção.',
             hire: 'Me contrate',
             resume: 'Currículo',
             resumeLabel: 'Abrir currículo em PDF',
@@ -35,7 +35,7 @@ export const messages = {
             title: 'Meus Serviços',
             subtitle: 'O que posso construir para você, do banco de dados ao deploy.',
             items: [
-                { name: 'Aplicações Web Full Stack', description: 'Sistemas completos, do banco de dados ao deploy, como o Navalha, um SaaS de agendamento em produção.' },
+                { name: 'Aplicações Web Full Stack', description: 'Sistemas completos, do banco de dados ao deploy, como o BarberSaaS, um SaaS de agendamento em produção.' },
                 { name: 'Landing Pages', description: 'Páginas rápidas, responsivas e com foco em conversão, com HTML semântico e boas práticas de acessibilidade.' },
                 { name: 'APIs REST', description: 'Back-end em Node.js e Express, com autenticação JWT, controle de acesso por perfil e validação no servidor.' },
                 { name: 'Front-end com Vue e React', description: 'Interfaces mobile-first em Vue.js e React com TypeScript e Tailwind CSS, a partir de protótipos no Figma.' },
@@ -86,7 +86,7 @@ export const messages = {
                 {
                     duration: '2025 – Atual',
                     title: 'Desenvolvedor Full Stack',
-                    subtitle: 'Navalha · projeto autoral em produção',
+                    subtitle: 'BarberSaaS · projeto autoral em produção',
                     description:
                         'SaaS de agendamento e gestão para barbearias, desenvolvido sozinho do modelo de dados ao deploy: API REST em Node.js e Express com MySQL, front-end em Vue.js e TypeScript, deploy na Vercel e na Railway.',
                 },
@@ -137,7 +137,7 @@ export const messages = {
             greeting: "Hi, I'm",
             role: 'Software Engineer',
             description:
-                "I'm a full stack developer with a degree in Systems Analysis and Development, and I build complete applications, from the database to deployment. I work with Node.js, TypeScript, Vue.js, React and MySQL, and my main project is Navalha, a SaaS for barbershops that I built on my own and is live in production.",
+                "I'm a full stack developer with a degree in Systems Analysis and Development, and I build complete applications, from the database to deployment. I work with Node.js, TypeScript, Vue.js, React and MySQL, and my main project is BarberSaaS, a SaaS for barbershops that I built on my own and is live in production.",
             hire: 'Hire me',
             resume: 'Resume',
             resumeLabel: 'Open resume (PDF, in Portuguese)',
@@ -151,7 +151,7 @@ export const messages = {
             title: 'My Services',
             subtitle: 'What I can build for you, from the database to deployment.',
             items: [
-                { name: 'Full Stack Web Apps', description: 'Complete systems from database to deployment, like Navalha, a scheduling SaaS live in production.' },
+                { name: 'Full Stack Web Apps', description: 'Complete systems from database to deployment, like BarberSaaS, a scheduling SaaS live in production.' },
                 { name: 'Landing Pages', description: 'Fast, responsive, conversion-focused pages with semantic HTML and accessibility best practices.' },
                 { name: 'REST APIs', description: 'Node.js and Express back-ends with JWT authentication, role-based access control and server-side validation.' },
                 { name: 'Vue & React Front-end', description: 'Mobile-first interfaces in Vue.js and React with TypeScript and Tailwind CSS, built from Figma prototypes.' },
@@ -202,7 +202,7 @@ export const messages = {
                 {
                     duration: '2025 – Present',
                     title: 'Full Stack Developer',
-                    subtitle: 'Navalha · personal project in production',
+                    subtitle: 'BarberSaaS · personal project in production',
                     description:
                         'Scheduling and management SaaS for barbershops, built on my own from data model to deployment: REST API in Node.js and Express with MySQL, front-end in Vue.js and TypeScript, deployed on Vercel and Railway.',
                 },
