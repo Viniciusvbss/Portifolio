@@ -1,6 +1,7 @@
 <script setup>
 import SectionHeader from '../UI/SectionHeader.vue';
 import { ref, onMounted, onUnmounted } from 'vue';
+import { t } from '@/i18n';
 
 const skills = [
     { percentage: 98, title: 'Figma', icon: 'logos:figma', color: '#a259ff' },
@@ -28,8 +29,8 @@ onUnmounted(() => observer?.disconnect());
 
 <template>
     <section id="skills" class="container-x pt-32">
-        <SectionHeader eyebrow="Toolbox" title="My Skills"
-            subtitle="Technologies and tools I use every day to bring ideas to life." />
+        <SectionHeader :eyebrow="t('skills.eyebrow')" :title="t('skills.title')"
+            :subtitle="t('skills.subtitle')" />
         <ul ref="grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <li v-for="(skill, index) in skills" :key="skill.title"
                 class="glass glass-hover p-6" data-aos="zoom-in" :data-aos-delay="(index % 4) * 80">

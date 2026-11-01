@@ -6,6 +6,8 @@ defineProps({
     tags: { type: Array, default: () => [] },
     liveLink: { type: String, default: null },
     codeLink: { type: String, default: null },
+    liveLabel: { type: String, default: 'Live Demo' },
+    codeLabel: { type: String, default: 'View Code' },
 })
 </script>
 
@@ -25,11 +27,11 @@ defineProps({
             <div class="mt-auto flex items-center gap-4 pt-6 text-sm font-semibold">
                 <a v-if="liveLink" :href="liveLink" target="_blank" rel="noopener"
                     class="inline-flex items-center gap-1.5 text-accent-violet transition hover:gap-2.5 dark:text-secondary">
-                    <Icon icon="mdi:open-in-new" /> Live Demo
+                    <Icon icon="mdi:open-in-new" /> {{ liveLabel }}
                 </a>
                 <a v-if="codeLink" :href="codeLink" target="_blank" rel="noopener"
                     class="inline-flex items-center gap-1.5 text-primary/70 transition hover:text-primary dark:text-slate-400 dark:hover:text-white">
-                    <Icon icon="mdi:github" /> View Code
+                    <Icon icon="mdi:github" /> {{ codeLabel }}
                 </a>
             </div>
         </div>

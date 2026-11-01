@@ -1,10 +1,7 @@
 <script setup>
 import Timeline from '../UI/Timeline.vue';
-const experience = [
-    { duration: '03/2008 - 07/2011', title: 'Frontend Developer', subtitle: 'Spotify' },
-    { duration: '03/2008 - 07/2011', title: 'Frontend Developer', subtitle: 'Spotify' },
-];
+import { t } from '@/i18n';
 </script>
 <template>
-    <Timeline title="Experience" icon="material-symbols-light:work" :items="experience" />
+    <Timeline :title="t('whyme.experience')" icon="material-symbols-light:work" :items="t('whyme.experienceItems')" />
 </template>

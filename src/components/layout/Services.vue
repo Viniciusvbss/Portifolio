@@ -1,21 +1,24 @@
 <script setup>
+import { computed } from 'vue';
 import SectionHeader from '../UI/SectionHeader.vue';
+import { t } from '@/i18n';
 
-const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error numquam corrupti repellendus architecto officiis autem expedita.';
-const services = [
-    { id: 1, icon: 'mdi:code-braces', name: 'Web Development', description: lorem },
-    { id: 2, icon: 'mdi:pencil-ruler', name: 'UI / UX Design', description: lorem },
-    { id: 3, icon: 'mdi:cellphone-link', name: 'Responsive Design', description: lorem },
-    { id: 4, icon: 'mdi:file-document-edit-outline', name: 'Technical Writing', description: lorem },
-    { id: 5, icon: 'mdi:speedometer', name: 'Performance', description: lorem },
-    { id: 6, icon: 'mdi:email-fast-outline', name: 'Consulting', description: lorem },
+const icons = [
+    'mdi:code-braces',
+    'mdi:pencil-ruler',
+    'mdi:cellphone-link',
+    'mdi:file-document-edit-outline',
+    'mdi:speedometer',
+    'mdi:email-fast-outline',
 ];
+const services = computed(() =>
+    t('services.items').map((item, i) => ({ id: i + 1, icon: icons[i], ...item })));
 </script>
 
 <template>
     <section id="services" class="container-x pt-32">
-        <SectionHeader eyebrow="What I do" title="My Services"
-            subtitle="Solutions crafted with care, from the first sketch to production." />
+        <SectionHeader :eyebrow="t('services.eyebrow')" :title="t('services.title')"
+            :subtitle="t('services.subtitle')" />
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <article v-for="element in services" :key="element.id"
                 class="glass glass-hover group relative overflow-hidden p-8"

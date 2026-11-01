@@ -6,6 +6,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { computed } from 'vue';
+import { t } from '@/i18n';
 
 import project1 from '@/assets/images/project-1.PNG';
 import project2 from '@/assets/images/project-2.PNG';
@@ -18,37 +20,37 @@ const breakpoints = {
   1024: { slidesPerView: 3 },
 };
 
-const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat fugit sequi similique, asperiores quisquam nostrum, enim ut repellendus vitae earum consectetur recusandae.';
-const projects = [project1, project2, project3, project4].map((image, i) => ({
-  title: `Portfolio Website ${i + 1}`,
-  description: lorem,
+const projects = computed(() => [project1, project2, project3, project4].map((image, i) => ({
+  id: i + 1,
+  title: `${t('projects.itemTitle')} ${i + 1}`,
+  description: t('projects.itemDescription'),
   image,
   tags: ['HTML', 'CSS', 'JavaScript'],
   liveLink: '/',
   codeLink: '/',
-}));
+})));
 </script>
 
 <template>
   <section id="projects" class="container-x pt-32">
-    <SectionHeader eyebrow="Portfolio" title="My Projects"
-      subtitle="A selection of things I've built recently." />
+    <SectionHeader :eyebrow="t('projects.eyebrow')" :title="t('projects.title')"
+      :subtitle="t('projects.subtitle')" />
 
     <div class="relative" data-aos="fade-up">
       <swiper :modules="[Navigation, Pagination, Autoplay]" :slidesPerView="1" :spaceBetween="24"
         :breakpoints="breakpoints" :navigation="navigationOptions" :pagination="{ clickable: true }"
         :autoplay="{ delay: 5000, pauseOnMouseEnter: true }" loop grabCursor class="projects-swiper !px-1 !pb-14 !pt-2">
-        <swiper-slide v-for="project in projects" :key="project.title" class="!h-auto">
-          <ProjectCard v-bind="project" />
+        <swiper-slide v-for="project in projects" :key="project.id" class="!h-auto">
+          <ProjectCard v-bind="project" :liveLabel="t('projects.live')" :codeLabel="t('projects.code')" />
         </swiper-slide>
       </swiper>
 
       <div class="mt-2 flex justify-center gap-3">
-        <button aria-label="Previous project"
+        <button :aria-label="t('projects.prev')"
           class="projects-prev grid h-12 w-12 place-items-center rounded-full border border-primary/15 bg-white/60 text-2xl transition hover:bg-primary hover:text-white dark:border-white/15 dark:bg-white/5 dark:hover:bg-secondary dark:hover:text-primary">
           <Icon icon="line-md:arrow-left" />
         </button>
-        <button aria-label="Next project"
+        <button :aria-label="t('projects.next')"
           class="projects-next grid h-12 w-12 place-items-center rounded-full border border-primary/15 bg-white/60 text-2xl transition hover:bg-primary hover:text-white dark:border-white/15 dark:bg-white/5 dark:hover:bg-secondary dark:hover:text-primary">
           <Icon icon="line-md:arrow-right" />
         </button>

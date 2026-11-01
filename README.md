@@ -31,3 +31,7 @@ npm run preview
 ```
 
 O resultado fica em `dist/`.
+
+## Documentação
+
+A explicação completa do projeto (estrutura, componentes, temas, tradução PT/EN, deploy e onde editar cada conteúdo) está em [`docs/PROJETO.md`](docs/PROJETO.md).

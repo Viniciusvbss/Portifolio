@@ -1,5 +1,6 @@
 <script setup>
 import Button from '../UI/Button.vue';
+import { t } from '@/i18n';
 
 const socials = [
     { icon: 'mdi:github', href: '', label: 'GitHub' },
@@ -17,27 +18,26 @@ const socials = [
                         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                         <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
                     </span>
-                    Available for new projects
+                    {{ t('hero.badge') }}
                 </span>
 
                 <h1 class="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
                     <span class="inline-block origin-[70%_70%] animate-[wave_2.5s_ease-in-out_infinite]">👋</span>
-                    Hi, I'm <span class="gradient-text animate-shimmer whitespace-nowrap">Vinicius</span>
+                    {{ t('hero.greeting') }} <span class="gradient-text animate-shimmer whitespace-nowrap">Vinicius</span>
                 </h1>
                 <p class="mt-4 text-xl font-semibold text-primary/80 md:text-2xl dark:text-slate-300">
-                    Frontend Developer &amp; UI enthusiast
+                    {{ t('hero.role') }}
                 </p>
                 <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-primary/65 lg:mx-0 dark:text-slate-400">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde molestiae a vel beatae molestias, quo
-                    nostrum non doloremque, explicabo consequuntur voluptatum reiciendis omnis ea qui sit praesentium.
+                    {{ t('hero.description') }}
                 </p>
 
                 <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                    <Button label="Hire me" href="#contact" icon="mdi:arrow-right" />
+                    <Button :label="t('hero.hire')" href="#contact" icon="mdi:arrow-right" />
                     <a href=""
                         class="inline-flex h-14 items-center gap-2 rounded-full border-2 border-primary/15 bg-white/50 px-7 text-lg font-semibold backdrop-blur transition hover:border-primary hover:bg-white dark:border-white/15 dark:bg-white/5 dark:hover:border-secondary dark:hover:text-secondary">
                         <Icon icon="line-md:download-loop" class="text-2xl" />
-                        Resume
+                        {{ t('hero.resume') }}
                     </a>
                 </div>
 
@@ -65,8 +65,8 @@ const socials = [
                             <Icon icon="mdi:code-tags" />
                         </span>
                         <div class="text-left">
-                            <p class="text-lg font-extrabold leading-none">5+ years</p>
-                            <p class="text-xs text-primary/60 dark:text-slate-400">of experience</p>
+                            <p class="text-lg font-extrabold leading-none">{{ t('hero.experienceValue') }}</p>
+                            <p class="text-xs text-primary/60 dark:text-slate-400">{{ t('hero.experienceLabel') }}</p>
                         </div>
                     </div>
                     <div class="glass absolute -right-3 top-8 flex items-center gap-2 !rounded-2xl px-4 py-2.5 text-sm font-bold sm:-right-8">

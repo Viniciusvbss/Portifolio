@@ -1,12 +1,14 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { t } from '@/i18n';
 
-const numbers = [
-    { id: 1, number: 12, title: 'Created projects', icon: 'mdi:rocket-launch-outline' },
-    { id: 2, number: 200, title: 'Projects', icon: 'mdi:folder-star-outline' },
-    { id: 3, number: 120, title: 'Happy clients', icon: 'mdi:emoticon-happy-outline' },
-    { id: 4, number: 5, title: 'Years', icon: 'mdi:calendar-check-outline' },
+const stats = [
+    { id: 1, number: 12, icon: 'mdi:rocket-launch-outline' },
+    { id: 2, number: 200, icon: 'mdi:folder-star-outline' },
+    { id: 3, number: 120, icon: 'mdi:emoticon-happy-outline' },
+    { id: 4, number: 5, icon: 'mdi:calendar-check-outline' },
 ];
+const numbers = computed(() => stats.map((s, i) => ({ ...s, title: t('counter')[i] })));
 
 const statsSection = ref(null);
 const hasIntersected = ref(false);
