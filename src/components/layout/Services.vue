@@ -4,12 +4,12 @@ import SectionHeader from '../UI/SectionHeader.vue';
 import { t } from '@/i18n';
 
 const icons = [
-    'mdi:code-braces',
-    'mdi:pencil-ruler',
-    'mdi:cellphone-link',
-    'mdi:file-document-edit-outline',
-    'mdi:speedometer',
-    'mdi:email-fast-outline',
+    'mdi:layers-triple-outline',
+    'mdi:web',
+    'mdi:api',
+    'mdi:monitor-cellphone',
+    'mdi:database-outline',
+    'mdi:cloud-upload-outline',
 ];
 const services = computed(() =>
     t('services.items').map((item, i) => ({ id: i + 1, icon: icons[i], ...item })));

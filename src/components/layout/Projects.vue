@@ -7,12 +7,8 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { computed } from 'vue';
-import { t } from '@/i18n';
-
-import project1 from '@/assets/images/project-1.PNG';
-import project2 from '@/assets/images/project-2.PNG';
-import project3 from '@/assets/images/project-3.PNG';
-import project4 from '@/assets/images/project-4.PNG';
+import { t, locale } from '@/i18n';
+import { projects as projectData } from '@/data/projects';
 
 const navigationOptions = { prevEl: '.projects-prev', nextEl: '.projects-next' };
 const breakpoints = {
@@ -20,14 +16,13 @@ const breakpoints = {
   1024: { slidesPerView: 3 },
 };
 
-const projects = computed(() => [project1, project2, project3, project4].map((image, i) => ({
-  id: i + 1,
-  title: `${t('projects.itemTitle')} ${i + 1}`,
-  description: t('projects.itemDescription'),
-  image,
-  tags: ['HTML', 'CSS', 'JavaScript'],
-  liveLink: '/',
-  codeLink: '/',
+const tr = (value) => (typeof value === 'string' ? value : value[locale.value]);
+
+const projects = computed(() => projectData.map((p) => ({
+  ...p,
+  title: tr(p.title),
+  description: tr(p.description),
+  tags: p.tags.map(tr),
 })));
 </script>
 
@@ -39,7 +34,7 @@ const projects = computed(() => [project1, project2, project3, project4].map((im
     <div class="relative" data-aos="fade-up">
       <swiper :modules="[Navigation, Pagination, Autoplay]" :slidesPerView="1" :spaceBetween="24"
         :breakpoints="breakpoints" :navigation="navigationOptions" :pagination="{ clickable: true }"
-        :autoplay="{ delay: 5000, pauseOnMouseEnter: true }" loop grabCursor class="projects-swiper !px-1 !pb-14 !pt-2">
+        :autoplay="{ delay: 5000, pauseOnMouseEnter: true }" rewind grabCursor class="projects-swiper !px-1 !pb-14 !pt-2">
         <swiper-slide v-for="project in projects" :key="project.id" class="!h-auto">
           <ProjectCard v-bind="project" :liveLabel="t('projects.live')" :codeLabel="t('projects.code')" />
         </swiper-slide>

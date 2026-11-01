@@ -1,11 +1,15 @@
 <script setup>
 import Button from '../UI/Button.vue';
 import { t } from '@/i18n';
+import { socials } from '@/data/contact';
 
-const socials = [
-    { icon: 'mdi:github', href: '', label: 'GitHub' },
-    { icon: 'mdi:linkedin', href: '', label: 'LinkedIn' },
-    { icon: 'mdi:instagram', href: '', label: 'Instagram' },
+const mainStack = [
+    { name: 'Vue.js', icon: 'logos:vue' },
+    { name: 'TypeScript', icon: 'logos:typescript-icon' },
+    { name: 'React', icon: 'logos:react' },
+    { name: 'MySQL', icon: 'logos:mysql-icon' },
+    { name: 'Node.js', icon: 'logos:nodejs-icon' },
+    { name: 'JavaScript', icon: 'logos:javascript' },
 ];
 </script>
 
@@ -34,7 +38,8 @@ const socials = [
 
                 <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
                     <Button :label="t('hero.hire')" href="#contact" icon="mdi:arrow-right" />
-                    <a href=""
+                    <a href="/curriculo-vinicius-barbosa.pdf" target="_blank" rel="noopener"
+                        :aria-label="t('hero.resumeLabel')" :title="t('hero.resumeLabel')"
                         class="inline-flex h-14 items-center gap-2 rounded-full border-2 border-primary/15 bg-white/50 px-7 text-lg font-semibold backdrop-blur transition hover:border-primary hover:bg-white dark:border-white/15 dark:bg-white/5 dark:hover:border-secondary dark:hover:text-secondary">
                         <Icon icon="line-md:download-loop" class="text-2xl" />
                         {{ t('hero.resume') }}
@@ -43,7 +48,7 @@ const socials = [
 
                 <ul class="mt-10 flex items-center justify-center gap-3 lg:justify-start">
                     <li v-for="s in socials" :key="s.label">
-                        <a :href="s.href" :aria-label="s.label"
+                        <a :href="s.href" :aria-label="s.label" :title="s.label" target="_blank" rel="noopener noreferrer"
                             class="grid h-11 w-11 place-items-center rounded-full border border-primary/10 bg-white/50 text-xl transition hover:-translate-y-1 hover:border-accent-violet hover:text-accent-violet dark:border-white/10 dark:bg-white/5 dark:hover:border-secondary dark:hover:text-secondary">
                             <Icon :icon="s.icon" />
                         </a>
@@ -70,7 +75,9 @@ const socials = [
                         </div>
                     </div>
                     <div class="glass absolute -right-3 top-8 flex items-center gap-2 !rounded-2xl px-4 py-2.5 text-sm font-bold sm:-right-8">
-                        <Icon icon="logos:vue" class="text-xl" /> Vue.js
+                        <span class="sr-only">{{ t('hero.stackLabel') }}:</span>
+                        <Icon v-for="tech in mainStack" :key="tech.name" :icon="tech.icon" class="text-xl"
+                            :title="tech.name" :aria-label="tech.name" role="img" />
                     </div>
                 </div>
             </div>

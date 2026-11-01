@@ -3,18 +3,11 @@ import { ref, watch } from 'vue';
 const STORAGE_KEY = 'locale';
 const SUPPORTED = ['pt', 'en'];
 
-const lorem =
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error numquam corrupti repellendus architecto officiis autem expedita.';
-const loremLong =
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde molestiae a vel beatae molestias, quo nostrum non doloremque, explicabo consequuntur voluptatum reiciendis omnis ea qui sit praesentium.';
-const loremProject =
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat fugit sequi similique, asperiores quisquam nostrum, enim ut repellendus vitae earum consectetur recusandae.';
-
 export const messages = {
     pt: {
         meta: {
             title: 'Vinicius | Portfólio',
-            description: 'Vinicius — portfólio de desenvolvedor frontend',
+            description: 'Vinicius Barbosa — Software Engineer full stack (Node.js, TypeScript, Vue.js)',
         },
         nav: {
             menu: ['Serviços', 'Habilidades', 'Por que eu', 'Projetos', 'Contato'],
@@ -24,33 +17,44 @@ export const messages = {
             language: 'Mudar idioma para inglês',
         },
         hero: {
-            badge: 'Disponível para novos projetos',
+            badge: 'Aberto a oportunidades',
             greeting: 'Olá, eu sou',
-            role: 'Desenvolvedor Frontend & entusiasta de UI',
-            description: loremLong,
+            role: 'Software Engineer',
+            description:
+                'Sou desenvolvedor full stack, formado em Análise e Desenvolvimento de Sistemas, e construo aplicações completas, do banco de dados ao deploy. Trabalho com Node.js, TypeScript, Vue.js, React e MySQL, e meu principal projeto é o BarberSaaS, um SaaS para barbearias que desenvolvi sozinho e está em produção.',
             hire: 'Me contrate',
             resume: 'Currículo',
-            experienceValue: '5+ anos',
+            resumeLabel: 'Abrir currículo em PDF',
+            stackLabel: 'Stack principal',
+            experienceValue: '3 anos',
             experienceLabel: 'de experiência',
         },
-        counter: ['Projetos criados', 'Projetos', 'Clientes satisfeitos', 'Anos'],
+        counter: ['Anos de experiência', 'SaaS em produção', 'Projetos publicados', 'Repositórios no GitHub'],
         services: {
             eyebrow: 'O que eu faço',
             title: 'Meus Serviços',
-            subtitle: 'Soluções feitas com cuidado, do primeiro rascunho até a produção.',
+            subtitle: 'O que posso construir para você, do banco de dados ao deploy.',
             items: [
-                { name: 'Desenvolvimento Web', description: lorem },
-                { name: 'Design UI / UX', description: lorem },
-                { name: 'Design Responsivo', description: lorem },
-                { name: 'Redação Técnica', description: lorem },
-                { name: 'Performance', description: lorem },
-                { name: 'Consultoria', description: lorem },
+                { name: 'Aplicações Web Full Stack', description: 'Sistemas completos, do banco de dados ao deploy, como o BarberSaaS, um SaaS de agendamento em produção.' },
+                { name: 'Landing Pages', description: 'Páginas rápidas, responsivas e com foco em conversão, com HTML semântico e boas práticas de acessibilidade.' },
+                { name: 'APIs REST', description: 'Back-end em Node.js e Express, com autenticação JWT, controle de acesso por perfil e validação no servidor.' },
+                { name: 'Front-end com Vue e React', description: 'Interfaces mobile-first em Vue.js e React com TypeScript e Tailwind CSS, a partir de protótipos no Figma.' },
+                { name: 'Banco de Dados', description: 'Modelagem relacional em MySQL, com chaves estrangeiras e consultas pensadas para as regras do negócio.' },
+                { name: 'Deploy e Infraestrutura', description: 'Publicação na Vercel e na Railway, armazenamento em S3, CORS e variáveis de ambiente configurados.' },
             ],
         },
         skills: {
             eyebrow: 'Ferramentas',
             title: 'Minhas Habilidades',
             subtitle: 'Tecnologias e ferramentas que uso no dia a dia para tirar ideias do papel.',
+            categories: {
+                frontend: 'Front-end',
+                backend: 'Back-end',
+                database: 'Banco de dados',
+                infra: 'Infraestrutura e deploy',
+                tools: 'Ferramentas',
+                languages: 'Outras linguagens',
+            },
         },
         whyme: {
             eyebrow: 'Trajetória',
@@ -58,21 +62,40 @@ export const messages = {
             subtitle: 'Um resumo de onde estudei e onde já trabalhei.',
             education: 'Formação',
             experience: 'Experiência',
+            languagesTitle: 'Idiomas',
+            languages: [
+                { name: 'Português', level: 'Nativo' },
+                { name: 'Inglês', level: 'Leitura de documentação técnica' },
+            ],
             educationItems: [
-                { duration: '03/2008 - 07/2011', title: 'Engenharia de Software', subtitle: 'Escola 1' },
-                { duration: '03/2008 - 07/2011', title: 'Engenharia de Software', subtitle: 'Escola 2' },
+                {
+                    duration: 'Mar 2023 – Dez 2025',
+                    title: 'Análise e Desenvolvimento de Sistemas',
+                    subtitle: 'Tecnólogo · Descomplica – Digital College',
+                    description: 'Curso concluído.',
+                },
             ],
             experienceItems: [
-                { duration: '03/2008 - 07/2011', title: 'Desenvolvedor Frontend', subtitle: 'Spotify' },
-                { duration: '03/2008 - 07/2011', title: 'Desenvolvedor Frontend', subtitle: 'Spotify' },
+                {
+                    duration: 'Jan 2025 – Atual',
+                    title: 'Desenvolvedor Web',
+                    subtitle: 'Freelance',
+                    description:
+                        'Landing page para uma empresa do setor financeiro em React e TypeScript, mobile-first e carregando em menos de 2 segundos. Levantamento de requisitos direto com o cliente, manutenção e correção de bugs após a entrega.',
+                },
+                {
+                    duration: '2025 – Atual',
+                    title: 'Desenvolvedor Full Stack',
+                    subtitle: 'BarberSaaS · projeto autoral em produção',
+                    description:
+                        'SaaS de agendamento e gestão para barbearias, desenvolvido sozinho do modelo de dados ao deploy: API REST em Node.js e Express com MySQL, front-end em Vue.js e TypeScript, deploy na Vercel e na Railway.',
+                },
             ],
         },
         projects: {
             eyebrow: 'Portfólio',
             title: 'Meus Projetos',
-            subtitle: 'Uma seleção de coisas que construí recentemente.',
-            itemTitle: 'Site de Portfólio',
-            itemDescription: loremProject,
+            subtitle: 'Alguns dos projetos que desenvolvi, do SaaS em produção aos estudos.',
             live: 'Ver online',
             code: 'Ver código',
             prev: 'Projeto anterior',
@@ -86,7 +109,7 @@ export const messages = {
             reply: 'Costumo responder em até 24 horas.',
             emailLabel: 'Email',
             locationLabel: 'Localização',
-            location: 'Brasil',
+            location: 'Recife, Pernambuco — Brasil',
             fields: {
                 email: { label: 'Seu email', placeholder: 'email@exemplo.com' },
                 subject: { label: 'Assunto', placeholder: 'Conte como posso te ajudar' },
@@ -100,7 +123,7 @@ export const messages = {
     en: {
         meta: {
             title: 'Vinicius | Portfolio',
-            description: 'Vinicius — Frontend developer portfolio',
+            description: 'Vinicius Barbosa — Full stack Software Engineer (Node.js, TypeScript, Vue.js)',
         },
         nav: {
             menu: ['Services', 'Skills', 'Why Me', 'Projects', 'Contact'],
@@ -110,33 +133,44 @@ export const messages = {
             language: 'Change language to Portuguese',
         },
         hero: {
-            badge: 'Available for new projects',
+            badge: 'Open to opportunities',
             greeting: "Hi, I'm",
-            role: 'Frontend Developer & UI enthusiast',
-            description: loremLong,
+            role: 'Software Engineer',
+            description:
+                "I'm a full stack developer with a degree in Systems Analysis and Development, and I build complete applications, from the database to deployment. I work with Node.js, TypeScript, Vue.js, React and MySQL, and my main project is BarberSaaS, a SaaS for barbershops that I built on my own and is live in production.",
             hire: 'Hire me',
             resume: 'Resume',
-            experienceValue: '5+ years',
+            resumeLabel: 'Open resume (PDF, in Portuguese)',
+            stackLabel: 'Main stack',
+            experienceValue: '3 years',
             experienceLabel: 'of experience',
         },
-        counter: ['Created projects', 'Projects', 'Happy clients', 'Years'],
+        counter: ['Years of experience', 'SaaS in production', 'Published projects', 'GitHub repositories'],
         services: {
             eyebrow: 'What I do',
             title: 'My Services',
-            subtitle: 'Solutions crafted with care, from the first sketch to production.',
+            subtitle: 'What I can build for you, from the database to deployment.',
             items: [
-                { name: 'Web Development', description: lorem },
-                { name: 'UI / UX Design', description: lorem },
-                { name: 'Responsive Design', description: lorem },
-                { name: 'Technical Writing', description: lorem },
-                { name: 'Performance', description: lorem },
-                { name: 'Consulting', description: lorem },
+                { name: 'Full Stack Web Apps', description: 'Complete systems from database to deployment, like BarberSaaS, a scheduling SaaS live in production.' },
+                { name: 'Landing Pages', description: 'Fast, responsive, conversion-focused pages with semantic HTML and accessibility best practices.' },
+                { name: 'REST APIs', description: 'Node.js and Express back-ends with JWT authentication, role-based access control and server-side validation.' },
+                { name: 'Vue & React Front-end', description: 'Mobile-first interfaces in Vue.js and React with TypeScript and Tailwind CSS, built from Figma prototypes.' },
+                { name: 'Databases', description: 'Relational modeling in MySQL, with foreign keys and queries designed around the business rules.' },
+                { name: 'Deploy & Infrastructure', description: 'Deployment on Vercel and Railway, S3 storage, and properly configured CORS and environment variables.' },
             ],
         },
         skills: {
             eyebrow: 'Toolbox',
             title: 'My Skills',
             subtitle: 'Technologies and tools I use every day to bring ideas to life.',
+            categories: {
+                frontend: 'Front-end',
+                backend: 'Back-end',
+                database: 'Database',
+                infra: 'Infrastructure & deploy',
+                tools: 'Tools',
+                languages: 'Other languages',
+            },
         },
         whyme: {
             eyebrow: 'Journey',
@@ -144,21 +178,40 @@ export const messages = {
             subtitle: "A quick look at where I studied and where I've worked.",
             education: 'Education',
             experience: 'Experience',
+            languagesTitle: 'Languages',
+            languages: [
+                { name: 'Portuguese', level: 'Native' },
+                { name: 'English', level: 'Reading technical documentation' },
+            ],
             educationItems: [
-                { duration: '03/2008 - 07/2011', title: 'Software Engineering', subtitle: 'School 1' },
-                { duration: '03/2008 - 07/2011', title: 'Software Engineering', subtitle: 'School 2' },
+                {
+                    duration: 'Mar 2023 – Dec 2025',
+                    title: 'Systems Analysis and Development',
+                    subtitle: "Associate's degree · Descomplica – Digital College",
+                    description: 'Completed.',
+                },
             ],
             experienceItems: [
-                { duration: '03/2008 - 07/2011', title: 'Frontend Developer', subtitle: 'Spotify' },
-                { duration: '03/2008 - 07/2011', title: 'Frontend Developer', subtitle: 'Spotify' },
+                {
+                    duration: 'Jan 2025 – Present',
+                    title: 'Web Developer',
+                    subtitle: 'Freelance',
+                    description:
+                        'Landing page for a financial services company built with React and TypeScript, mobile-first and loading in under 2 seconds. Gathered requirements directly with the client and handled maintenance and bug fixes after delivery.',
+                },
+                {
+                    duration: '2025 – Present',
+                    title: 'Full Stack Developer',
+                    subtitle: 'BarberSaaS · personal project in production',
+                    description:
+                        'Scheduling and management SaaS for barbershops, built on my own from data model to deployment: REST API in Node.js and Express with MySQL, front-end in Vue.js and TypeScript, deployed on Vercel and Railway.',
+                },
             ],
         },
         projects: {
             eyebrow: 'Portfolio',
             title: 'My Projects',
-            subtitle: "A selection of things I've built recently.",
-            itemTitle: 'Portfolio Website',
-            itemDescription: loremProject,
+            subtitle: "Some of the projects I've built, from a SaaS in production to study projects.",
             live: 'Live Demo',
             code: 'View Code',
             prev: 'Previous project',
@@ -172,7 +225,7 @@ export const messages = {
             reply: 'I usually reply within 24 hours.',
             emailLabel: 'Email',
             locationLabel: 'Location',
-            location: 'Brazil',
+            location: 'Recife, Pernambuco — Brazil',
             fields: {
                 email: { label: 'Your email', placeholder: 'email@example.com' },
                 subject: { label: 'Subject', placeholder: 'Let me know how I can help you' },

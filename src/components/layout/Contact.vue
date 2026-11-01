@@ -4,6 +4,7 @@ import Input from '../UI/Input.vue';
 import Button from '../UI/Button.vue';
 import { computed } from 'vue';
 import { t } from '@/i18n';
+import { email, socials } from '@/data/contact';
 
 const fields = [
   { id: 'email', type: 'email' },
@@ -13,16 +14,9 @@ const fields = [
 const inputs = computed(() => fields.map((f) => ({ ...f, ...t(`contact.fields.${f.id}`) })));
 
 const contactInfo = computed(() => [
-  { icon: 'mdi:email-outline', label: t('contact.emailLabel'), value: 'hello@example.com' },
+  { icon: 'mdi:email-outline', label: t('contact.emailLabel'), value: email, href: `mailto:${email}` },
   { icon: 'mdi:map-marker-outline', label: t('contact.locationLabel'), value: t('contact.location') },
 ]);
-
-const socials = [
-  { icon: 'fa-brands:twitter', href: '', label: 'Twitter' },
-  { icon: 'fa-brands:linkedin', href: '', label: 'LinkedIn' },
-  { icon: 'fa-brands:github', href: '', label: 'GitHub' },
-  { icon: 'fa-brands:instagram', href: '', label: 'Instagram' },
-];
 </script>
 
 <template>
@@ -42,15 +36,16 @@ const socials = [
             <span class="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-xl text-secondary">
               <Icon :icon="info.icon" />
             </span>
-            <div>
+            <div class="min-w-0">
               <p class="text-xs uppercase tracking-wider text-white/60">{{ info.label }}</p>
-              <p class="font-semibold">{{ info.value }}</p>
+              <a v-if="info.href" :href="info.href" class="break-all text-sm font-semibold transition hover:text-secondary sm:text-base">{{ info.value }}</a>
+              <p v-else class="font-semibold">{{ info.value }}</p>
             </div>
           </li>
         </ul>
         <ul class="relative flex gap-3">
           <li v-for="s in socials" :key="s.label">
-            <a :href="s.href" :aria-label="s.label"
+            <a :href="s.href" :aria-label="s.label" :title="s.label" target="_blank" rel="noopener noreferrer"
               class="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-lg transition hover:-translate-y-1 hover:bg-secondary hover:text-primary">
               <Icon :icon="s.icon" />
             </a>

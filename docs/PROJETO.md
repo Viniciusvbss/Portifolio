@@ -26,7 +26,7 @@ Este documento explica como o portfólio funciona: tecnologias, estrutura de pas
 
 ## 1. Visão geral
 
-É um site de página única (*single page*) que apresenta o Vinicius como desenvolvedor frontend. A página é dividida em seções (Hero, Números, Serviços, Habilidades, Por que eu, Projetos e Contato), com menu fixo no topo para navegar entre elas.
+É um site de página única (*single page*) que apresenta o Vinicius como desenvolvedor full stack. A página é dividida em seções (Hero, Números, Serviços, Habilidades, Por que eu, Projetos e Contato), com menu fixo no topo para navegar entre elas.
 
 Principais recursos:
 
@@ -97,6 +97,9 @@ Portifolio/
 │   ├── components/
 │   │   ├── layout/           ← seções da página (Navbar, Hero, Contato...)
 │   │   └── UI/               ← peças reutilizáveis (Button, Input, Card...)
+│   ├── data/contact.js       ← email e links das redes sociais
+│   ├── data/skills.js        ← habilidades por categoria
+│   ├── data/projects.js      ← projetos do carrossel
 │   ├── App.vue               ← monta a página com todas as seções
 │   ├── i18n.js               ← textos em PT/EN e lógica de tradução
 │   ├── main.js               ← ponto de entrada da aplicação
@@ -132,9 +135,9 @@ Todas ficam em `src/components/layout/`, na ordem em que aparecem:
 | --- | --- | --- |
 | `Navbar.vue` | — | Menu fixo no topo. Fica com fundo de vidro ao rolar. Tem o botão **PT/EN**, o botão de tema e o menu do celular. |
 | `HeroSection.vue` | — | Selo "Disponível", saudação com o nome, função, descrição, botões *Me contrate* e *Currículo*, redes sociais e foto com selos flutuantes. |
-| `Counter.vue` | — | Faixa com 4 números animados (projetos, clientes, anos). Os números só animam quando a faixa aparece na tela (`IntersectionObserver`). |
+| `Counter.vue` | — | Faixa com 4 números animados (anos de experiência, SaaS em produção, projetos publicados, repositórios). Os números só animam quando a faixa aparece na tela (`IntersectionObserver`). |
 | `Services.vue` | `#services` | Grade com 6 cards de serviços, cada um com ícone. |
-| `Skills.vue` | `#skills` | 8 cards de tecnologias com logo, porcentagem animada e barra de progresso. |
+| `Skills.vue` | `#skills` | 6 cards por categoria (Front-end, Back-end, Banco de dados, Infraestrutura, Ferramentas, Outras linguagens), cada um com as tecnologias e seus logos. |
 | `Whyme.vue` | `#whyme` | Junta `Education.vue` e `Experience.vue`, que são linhas do tempo (usam o componente `Timeline`). |
 | `Projects.vue` | `#projects` | Carrossel (Swiper) com os projetos. Mostra 1, 2 ou 3 cards conforme a largura da tela, com autoplay, setas e paginação. |
 | `Contact.vue` | `#contact` | Card dividido: informações de contato e redes à esquerda, formulário à direita. |
@@ -175,14 +178,14 @@ Cabeçalho padrão das seções: selo pequeno (*eyebrow*), título, linha em gra
 Props: `title` (obrigatório), `eyebrow`, `subtitle`.
 
 ### `ProjectCard.vue`
-Card de projeto com imagem (zoom ao passar o mouse), título, descrição, tags e links.
+Card de projeto com imagem (zoom ao passar o mouse), título, descrição, tags e links. Sem `image`, mostra uma capa gerada com gradiente e o ícone de `icon`. Os links só aparecem quando existem.
 
-Props: `title`, `description`, `image` (obrigatórios), `tags`, `liveLink`, `codeLink`, `liveLabel`, `codeLabel`.
+Props: `title` e `description` (obrigatórios), `image`, `icon`, `tags`, `liveLink`, `codeLink`, `liveLabel`, `codeLabel`.
 
 ### `Timeline.vue`
 Card com linha do tempo, usado em Formação e Experiência.
 
-Props: `title`, `icon`, `items` (lista de `{ duration, title, subtitle }`).
+Props: `title`, `icon`, `items` (lista de `{ duration, title, subtitle, description }`; `description` é opcional).
 
 ---
 
@@ -279,8 +282,7 @@ const services = computed(() => t('services.items'));
 ## 11. Animações
 
 - **AOS:** qualquer elemento com `data-aos="fade-up"` (ou `fade-left`, `zoom-in`...) anima ao aparecer na tela. `data-aos-delay` define um atraso em milissegundos. Configuração em `src/main.js`.
-- **Contadores:** `Counter.vue` e `Skills.vue` usam `IntersectionObserver` para só começar a contar quando a seção aparece.
-- **Barras de habilidade:** a largura vai de 0% até a porcentagem com uma transição de 2 segundos.
+- **Contadores:** `Counter.vue` usa `IntersectionObserver` para só começar a contar quando a faixa aparece.
 - **Carrossel:** autoplay a cada 5 segundos, pausando quando o mouse está em cima.
 
 ---
@@ -293,12 +295,12 @@ const services = computed(() => t('services.items'));
 | Formação e experiência | `src/i18n.js` → `whyme.educationItems` / `whyme.experienceItems` |
 | Serviços (nomes e descrições) | `src/i18n.js` → `services.items` · ícones em `Services.vue` |
 | Números do contador | `Counter.vue` (valores) · `src/i18n.js` → `counter` (rótulos) |
-| Habilidades (nome, %, logo, cor) | `Skills.vue` → lista `skills` |
-| Projetos (imagens, tags, links) | `Projects.vue` · textos em `src/i18n.js` → `projects` |
-| Imagens dos projetos | `src/assets/images/` e os `import` no topo de `Projects.vue` |
+| Habilidades (tecnologias e logos) | `src/data/skills.js` · títulos das categorias em `src/i18n.js` → `skills.categories` |
+| Projetos (textos, tags, links, imagem ou ícone) | `src/data/projects.js` |
+| Imagens dos projetos | `src/assets/images/` e os `import` no topo de `src/data/projects.js` |
 | Foto de perfil | `src/assets/images/eu.jpeg` |
-| Redes sociais do Hero | `HeroSection.vue` → lista `socials` |
-| Email e redes do Contato | `Contact.vue` → `contactInfo` e `socials` |
+| Email e redes sociais (Hero e Contato) | `src/data/contact.js` |
+| Localização | `src/i18n.js` → `contact.location` |
 | Link do currículo | `HeroSection.vue` → `href` do botão *Currículo* |
 | Cores, fonte, animações | `tailwind.config.js` |
 | Estilo dos cards e classes globais | `src/style.css` |
@@ -307,14 +309,20 @@ const services = computed(() => t('services.items'));
 
 ### Adicionando um projeto novo
 
-1. Coloque a imagem em `src/assets/images/` (ex.: `project-5.png`).
-2. Em `Projects.vue`, importe a imagem e adicione na lista:
+1. Se tiver um print, coloque em `src/assets/images/` (ex.: `meu-projeto.png`) e importe no topo de `src/data/projects.js`.
+2. Adicione um objeto na lista `projects`:
    ```js
-   import project5 from '@/assets/images/project-5.png';
-   // ...
-   [project1, project2, project3, project4, project5]
+   {
+       id: 'meu-projeto',
+       image: meuProjeto,          // ou, sem print: icon: 'mdi:rocket-launch-outline'
+       title: { pt: 'Meu Projeto', en: 'My Project' },
+       description: { pt: 'Descrição em português.', en: 'English description.' },
+       tags: ['Vue.js', 'Node.js'],
+       liveLink: 'https://meu-projeto.vercel.app', // opcional
+       codeLink: 'https://github.com/Viniciusvbss/meu-projeto', // opcional
+   },
    ```
-3. Hoje todos os projetos usam o mesmo título, descrição, tags e links. Para ter textos diferentes em cada projeto, o ideal é transformar `projects` em `src/i18n.js` em uma lista, igual a `services.items`.
+3. A ordem da lista é a ordem do carrossel.
 
 ---
 
@@ -351,19 +359,10 @@ Configurações usadas (a Vercel detecta sozinha por ser um projeto Vite):
 
 ## 15. Pendências e próximos passos
 
-**Dados provisórios para trocar:**
-
-- Textos "Lorem ipsum" (Hero, Serviços, Projetos)
-- Email `hello@example.com` e localização no Contato
-- Links das redes sociais (Hero e Contato), que hoje estão vazios
-- Link do botão *Currículo*
-- Selos "5+ anos" e "Vue.js" na foto do Hero
-- Formação, experiência e números do contador
-- Projetos reais (títulos, descrições, tags e links)
+**Dados provisórios:** todos os textos e dados já são reais. Ao adicionar projetos novos, atualize também o contador em `Counter.vue` (projetos publicados e repositórios).
 
 **Ideias de melhorias:**
 
 - Fazer o formulário de contato enviar mensagens de verdade (Formspree, EmailJS)
 - Melhorar o SEO: imagem de compartilhamento (Open Graph) e favicon próprio
-- Ter textos diferentes para cada projeto (ver [seção 12](#adicionando-um-projeto-novo))
 - Trocar o nome do pacote em `package.json` (hoje `my-project-vue3`)
